@@ -1,0 +1,8 @@
+@{
+    Response.ContentType = "application/json";
+    Response.AppendHeader("Access-Control-Allow-Origin", "*");
+    
+        string json = null;
+        var departments = EvalSystem.EvalSystemDB.GetDepartments();
+        json = EvalSystem.DepartmentModel.ToJsonString(departments);
+}@Html.Raw(@json)

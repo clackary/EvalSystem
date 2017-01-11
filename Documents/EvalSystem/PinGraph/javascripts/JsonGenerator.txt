@@ -1,0 +1,28 @@
+[
+  '{{repeat(10,100)}}',
+{
+    
+
+teacher: '{{firstName()}} {{surname()}}',
+course: function (tags) {
+        var courses = ['cs1400', 'cs3610', 'cs1010'];
+        return courses[tags.integer(0, courses.length - 1)];
+      },
+      year: function (tags) {
+        var years = ['2012', '2011', '2009'];
+        return years[tags.integer(0, years.length - 1)];
+      },
+      semester: function (tags) {
+        var semester = ['summer', 'spring', 'fall'];
+        return semester[tags.integer(0, semester.length - 1)];
+      },
+      score: '{{floating(0.1, 4.0, 1, "0.00")}}',
+      permission: '{{integer(1,3)}}',
+      crn: '{{integer(10000,99999)}}'
+  	  
+      
+      
+    
+}
+]
+

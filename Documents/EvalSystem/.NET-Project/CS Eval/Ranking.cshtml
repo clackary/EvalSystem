@@ -1,0 +1,17 @@
+﻿@{
+    Response.ContentType = "application/json";
+
+    string json = null;
+    if (Request["instructorID"] != null && Request["semester"] != null &&
+        Request["year"] != null)
+    {
+        var instructorID = Convert.ToInt32(Request["instructorID"]);
+        var semester = Convert.ToInt32(Request["semester"]);
+        var year = Convert.ToInt32(Request["year"]);
+
+        var rankings = EvalSystem.EvalSystemDB.GetRankings(instructorID, semester, year);
+        json = EvalSystem.RankingsModel.ToJsonString(rankings);
+
+
+    }
+}@Html.Raw(@json)

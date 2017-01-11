@@ -1,0 +1,17 @@
+﻿@{
+    Response.ContentType = "application/json";
+
+    string json = null;
+    if (Request["crn"] != null && Request["semester"] != null &&
+        Request["year"] != null)
+    {
+        var crn = Convert.ToInt32(Request["crn"]);
+        var semester = Convert.ToInt32(Request["semester"]);
+        var year = Convert.ToInt32(Request["year"]);
+
+        var crnStatistics = EvalSystem.EvalSystemDB.GetCrnStatistics(crn, semester, year);
+        json = EvalSystem.CrnStatisticsModel.ToJsonString(crnStatistics);
+
+
+    }
+}@Html.Raw(@json)
