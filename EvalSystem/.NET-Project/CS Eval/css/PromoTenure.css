@@ -1,0 +1,57 @@
+.center{
+    text-align: center;
+    display: block;
+}
+#result{
+    margin: auto;
+    width: 980px;
+}
+.content{
+    width:100%;
+}
+.title{
+    text-align:center;
+}
+ul.leaders {
+    max-width: 40em;
+    padding: 0;
+    overflow-x: hidden;
+    list-style: none}
+ul.leaders li:before {
+    float: left;
+    width: 0;
+    white-space: nowrap;
+    content:
+    ". . . . . . . . . . . . . . . . . . . . "
+    ". . . . . . . . . . . . . . . . . . . . "
+    ". . . . . . . . . . . . . . . . . . . . "
+    ". . . . . . . . . . . . . . . . . . . . "}
+ul.leaders span:first-child {
+    padding-right: 0.33em;
+    background: white}
+ul.leaders span + span {
+    float: right;
+    padding-left: 0.33em;
+    background: white}
+.graph{
+    border: 1px;
+    border-color: black;
+    border-style: solid;
+    margin: auto;
+    margin-top:25px;
+}
+.tocTable {
+
+    border-collapse: collapse;
+    margin:auto;
+    text-align:center;
+}
+
+.thead {
+    background-color: #E6E6E6;
+}
+.tocTr, .thead, .tocTable{
+    margin-top: 25px;
+    width: 550px;
+    border: 1px solid black;
+}

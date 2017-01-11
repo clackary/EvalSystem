@@ -1,0 +1,82 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Test Graph</title>
+    <link rel="stylesheet" type="text/css" href="css/TestGraphZoom.css" />
+    <script data-main="javascripts/testgraphinit.js" src="lib/require/require.js"></script>
+</head>
+
+<body>
+    <div id="page">
+        <h2 style='margin:auto;text-align:center;'>Computer Science CS 1400 to CS 2400</h2>
+
+        <table class='tablegraph' id='tableid' align='center'>
+            <tr></tr>
+            <tr id='mainrow' align='center'></tr>
+            <tr></tr>
+        </table>
+
+        <table align='center'>
+            <tr>
+                <td colspan='9'>
+                    <input type='image' src='images/Arrows-Back-icon.png' width='20px' height='20px' onmousedown="leftClick()" onmouseup="endAction()" ondragend="endAction()" id='leftclick' />
+                </td>
+                <td>
+                    <input type='image' src='images/Very-Basic-Plus-icon.png' width='20px' height='20px' onmousedown="zoomIn()" onmouseup="endAction()" ondragend="endAction()" id='zoomin' />
+                </td>
+                <td>
+                    <span onclick="resetGraph();" style="font-weight: bolder; font-size: 80%; cursor: pointer; vertical-align: middle;">RESET</span>
+                </td>
+                <td>
+                    <input type='image' src='images/Very-Basic-Minus-icon.png' width='20px' height='20px' onmousedown="zoomOut()" onmouseup="endAction()" ondragend="endAction()" id='zoomout' />
+                </td>
+                <td>
+                    <input type='image' src='images/Arrows-Back-greater-than.png' width='20px' height='20px' onmousedown="rightClick()" onmouseup="endAction()" ondragend="endAction()" id='rightclick' />
+                </td>
+            </tr>
+        </table>
+
+        <table align='center'>
+            <tr>
+                <td colspan='9' width='900px'>Legend:</td>
+                <tr>
+                    <td style='vertical-align:top'><img src='images/LegendSquare-Red.png' />Sections you teach.</td>
+                </tr>
+                <tr>
+                    <td class='legendrow' style='vertical-align:top'><img src='images/LegendSquare-Green.png' />Other sections you can view.</td>
+                </tr>
+                <tr>
+                    <td style='vertical-align:top'><img src='images/LegendSquare-Blue.png' />Sections you cannot view.</td>
+                </tr>
+            </tr>
+
+        </table>
+
+        <table class="scoretabscontainer">
+            <thead>
+                <tr>
+                    <th class='sortableHeader' onclick='setTimeout(0,sortKey());'>Key</th>
+                    <th class='sortableHeader' onclick='setTimeout(0,sortClassName());'>Class</th>
+                    <th class='sortableHeader' onclick='setTimeout(0,sortInstructor());'>Instructor</th>
+                    <th class='sortableHeader' onclick='setTimeout(0,sortSemester());'>Semester</th>
+                    <th class='sortableHeader' onclick='setTimeout(0,sortScore());'>Score</th>
+                </tr>
+            </thead>
+            <tbody id="tabularScores" data-bind="foreach: { data: pinDataArray, as: 'pin' }">
+                <tr>
+                    <td data-bind="attr: { style: 'background-color:' +  marker + ';'}" />
+                    <td data-bind="text: course" />
+                    <td data-bind="text: instructor" />
+                    <td data-bind="text: semester + ' ' + year" />
+                    <td data-bind="text: score" />
+            </tbody>
+        </table>
+    </div>
+
+
+
+</body>
+
+</html>

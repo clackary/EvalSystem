@@ -1,0 +1,131 @@
+﻿
+<!DOCTYPE>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Pin Graph Report</title>
+	<link rel="stylesheet" type="text/css" href="css/pingraphgui.css">
+    <script src="js/pingraphgui.js"></script>
+    <script src="js/jquery-1.12.3.min.js"></script>
+	<script type="text/javascript">
+		if(screen.width <=800)
+		{
+			window.location = "mpingraphgui.html";
+		}
+	</script>
+</head>
+<body onload="setYearsOptions()">
+
+    <span style="font-size:1.5em">
+        <strong>
+            Pin Graph Reporting
+        </strong>
+    </span>
+
+<form>
+
+<!--DISPLAYS COURSES SELECTED TO RUN REPORTING-->
+<div id="selectedCourses">
+	<fieldset>
+		<legend>Selected Courses</legend>
+			<ul id="selectedCoursesList" class="unstyled-list">
+                <!--This list will be populated dynamically-->
+			</ul>
+
+        <div id="removeInstructions" style="display:none;color:red;font-size:.8em"><em>Select courses to be removed...</em><br /></div>
+        <button type="button" id="removeSelectedCoursesButton" onclick="removeCourses()">Remove Courses from Selected List</button>
+			
+	</fieldset>
+</div>
+
+<div class="verticalRule"></div>
+
+<!--SEARCH INPUTS FOR COURSES-->
+<div id="addField" class="searchFieldset">
+	<fieldset>
+        <p class="years" id="hint"><em>Hint: Push and hold the Ctrl button to make multiple selections</em></p>
+
+		<legend>Search Course</legend>
+
+<!--YEARS SELECTIONS-->			
+		<div id="yearSelect"> 
+			<lable class="years">Select Years</lable><br class="years">
+				<select id="years" class="years" size="10" multiple>
+                    <!--These options will be dynamically populated-->	
+				</select>
+		</div><br class="years">
+
+		<button type="button" id="yearsbutton" class="years" onclick="selectYears()">Select</button>
+		<button type="button" id="resetSearch1" class="years" onclick="resetSearch()">Reset Form</button>
+
+		<!--'yearsSelected' used for when years have been selected-->
+		<div id="yearsSelected" class="years" >
+			Selected Years: 
+		</div><br class="years" style="display:inline">
+<!--end years selections-->
+
+
+<!--SEMESTER SELECTIONS-->
+		<div id="semesterSelect">
+			<label class="semesters"><br>Select Semesters</label><br class="semesters" >
+				<select id="semesters" class="semesters"  multiple>
+						<!--These options will be dynamically populated-->
+				</select>
+		</div><br class="semesters" >
+
+		<button type="button" id="semestersbutton" class="semesters"  onclick="selectSemesters()">Select</button>
+		<button type="button" id="resetSearch2" class="semesters" onclick="resetSearch()">Reset Form</button>
+
+		<div id="semestersSelected" class="semesters" >
+			Selected Semesters: 
+		</div><br class="semesters">
+<!--end semester selections-->
+
+
+<!--DEPARTMENT SELECTIONS-->
+		<div id="departmentSelect">
+			<label class="departments"><br>Select Departments</label><br class="departments" >
+				<select id="departments" class="departments" size="7" multiple>
+                    <!--These options will be dynamically populated-->
+				</select>
+		</div><br class="departments">
+
+		<button type="button" id="departmentsbutton" class="departments"  onclick="selectDepartments()">Select</button>
+		<button type="button" id="resetSearch3" class="departments" onclick="resetSearch()">Reset Form</button>
+
+		<div id="departmentsSelected" class="departments" >
+			Selected Departments: 
+		</div><br class="departments">
+<!--end department selections-->
+
+<!--COURSE NUMBER SELECTIONS-->
+        <div id="courseSelect">
+            <label class="courses"><br>Select Courses</label><br class="courses">
+            <select id="courses" class="courses" size="7" multiple>
+                <!--These options will be dynamically populated-->
+            </select>
+        </div><br class="courses">
+
+        <button type="button" id="coursesbutton" class="courses" onclick="selectCourses()">Select</button>
+        <button type="button" id="resetSearch4" class="courses" onclick="resetSearch()">Reset Form</button>
+
+<!--end course number selections-->
+
+	</fieldset>
+
+</div>
+    
+    <button type="button" id="viewPinReportbutton type=" onclick="runReport()" style="margin-top:5px;margin-left:2px">
+        View Pin Graph Report</button>
+
+<div class="popup" style="width:100%; height:100%; background-color:gray;
+                            opacity:0.5; position:fixed; left:0; top:0; display:none;"></div>
+
+
+</form>
+    <div class="popup" style="text-align:center;border:solid black 2px; background-color:white; padding:5px;
+                                position:fixed; left:0; right:0; max-width:300px; top:50%;
+                                margin-left:auto; margin-right:auto; display:none;">Processing your request...<br/> You will be automatically redirected.</div>
+
+</body>
+</html>
