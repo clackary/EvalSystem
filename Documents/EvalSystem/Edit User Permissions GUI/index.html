@@ -1,0 +1,101 @@
+<!DOCTYPE>
+<html lang="en">
+	<head>
+	    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+		<title>Reports</title>
+		<link rel="stylesheet" type="text/css" href="css/index.css">
+	    <script src="js/dIndex.js"></script>
+	    <script src="js/sharedIndex.js"></script>
+	    <script src="js/jquery-1.12.3.min.js"></script>
+		<script type="text/javascript">
+			if(screen.width <=800)
+			{
+				window.location = "mIndex.html";
+			}
+		</script>
+	</head>
+	<body>
+
+<!-- inputs for User Permissions -->
+
+<div id="addField" class="searchFieldset">
+	<fieldset>
+
+<!-- USER SELECTIONS -->
+		<div id="userSelect">
+			<lable class="users"> Select User</lable><br class="users">
+				<!--Hard coded values for testing -->
+				<select id="users" class="users">
+					<option value="%"> -- Select a User -- </option>
+					<option value="03209095"> Ted Cowan </option>
+					<option value="23094093"> Brad Peterson </option>
+					<option value="12093949"> Josh Swenson </option>
+				</select>	
+		</div><br class="users">
+
+		<button style="width:100px" type="button" id="usersbutton" class="users" onclick="selectUsers()">Select</button>
+		<button style="width:100px" type="button" id="resetSearch1" class="users" onclick="resetSearch()">Reset Form</button>
+
+		<div id="usersSelected" class="users">
+			Selected User:
+		</div><br class="users" style="display:inline">
+
+<!-- END USER SELECTIONS -->
+
+
+<!-- PERMISSIONS SECTION -->
+
+		<div id="permissionsContainer">
+
+		<!-- PERMISSIONS LIST -->
+			<br>
+			<p class="permList" id="hint"><em>Hint:Push and hold the Ctrl button to make multiple selections.</em></p><br><br>
+
+
+			<div id="permListSelect">
+				<lable id="usersSelected" class="permList"> List of people [USER] cannot see: </lable> <br class="permList">
+					<!-- Hard coded values -->
+					<select id="permList" style="height:100px" class="permList" multiple>
+						<option value="1"> Joe Shmoe </option>
+						<option value="2"> French Canadian </option>
+						<option value="3"> Danish Ferryman </option>
+						<option value="4"> Russian Patrolman </option>
+					</select>
+			</div>
+
+		<!-- END PERMISSIONS LIST -->
+
+
+		<!-- These buttons are for permissions list to add or remove items -->
+
+			<div id="permissionsButtons">
+				<button style="width:100px" type="button" id="addSelected" class="permissionsButtons" onclick="addSelected()">Add >> </button><br><br>
+				<button style="width:100px" type="button" id="removeSelected" class="permissionsButtons" onclick="removeSelected()"> &lt;&lt; Remove</button>
+			</div>
+
+		<!-- PERMISSIONS ADDED -->
+
+			<div id="permAddSelect">
+				<lable class="permAdd"> List of people [USER] can see: </lable><br class="permAdd">
+					<!-- Hard coded values -->
+					<select id="permAdd" style="height:100px" class="permAdd" multiple>
+						<option value="5"> Alfred Hitchcock </option>
+						<option value="6"> Asian Countryman </option>
+					</select>
+			</div>
+
+			<br><br><br>
+
+			<!-- Reset Form -->
+			<button style="width:150px" type="button" id="resetSearch1" class="permAdd" onclick="resetSearch()">Reset Form</button>
+
+		<!-- END PERMISSIONS ADDED -->
+		</div>
+<!-- END PERMISSIONS SECTION -->
+
+
+</fieldset>
+<!-- End inputs for User Permissions -->
+
+	</body>
+</html>

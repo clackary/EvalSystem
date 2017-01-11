@@ -1,0 +1,255 @@
+.body
+{
+	font-family: calibri,sans-serif;
+	text-align: center;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+}
+
+.body table {
+	margin: auto;
+}
+
+.wrapper
+{
+	display: inline-block;
+	height: auto;
+	width: 980px;
+}
+
+.header
+{
+	font-weight: bold;
+	font-size: 50px;
+	display: block;
+	width: 980px;
+	height: 30px;
+}
+
+.header img
+{
+	float: left;
+	outline : none;
+	border: 0;
+}
+
+ #bar hr
+{ 
+	margin-left: 0px;
+	margin-right:0px;
+	margin-top: 5px;
+	height: 5px;
+	width:980px;
+	border-radius: 5px;
+	background-color: #000000;
+	-moz-box-shadow:  0 0 0 3px #D8D8D8;
+	-webkit-box-shadow: 0 0 0 3px #D8D8D8;
+	box-shadow: 0 0 0 3px #D8D8D8;
+}
+
+.footer
+{	
+	display: block;
+	height: 20px;
+	margin-top: 10px;
+	font-weight: bold;
+}
+
+.filter
+{
+	font-weight: bold;
+}
+
+
+
+
+
+
+
+/*----------------------------dropp down box-----------------------------------*/
+.dropDown  select
+{
+	font-family: calibri,sans-serif;
+	font-size: 15px;
+	font-weight: bold;
+	width: 25px;
+}
+
+
+
+
+
+
+
+
+
+
+
+/*---------------------Class Table-------------------------*/
+.teacher_overall_table
+{
+	text-align:left;
+}
+
+.teacher_overall_table th
+{
+	background-color: #FFFFFF; 
+	font-size: 18px; 
+	font-weight: bold;
+	text-align:left;
+}
+
+.teacher_overall_table  tr td a
+{
+	text-decoration: none;
+	color: #0000FF; 
+	font-weight: bold;
+}
+
+tr.table_row_even 
+{
+	background-color: #BDBDBD; 
+	color: #000000;
+	border-style: none;
+}
+
+tr.table_row_odd
+{
+    background-color: #E0E0E0; 
+	color: #000000;
+	border-style: none;
+}
+
+
+
+
+
+
+
+
+
+/*---------------This controls the score bar and its image---------------------*/
+.container
+{
+	width:300px;
+	min-height: 20px;
+	background-color:#F2F2F2;
+}
+
+.ticksZeroToFour
+{
+	background-image:url('../images/ticksZeroToFour.png')
+}
+
+.ticksTwoToFive
+{
+	background-image:url('../images/ticksTwoToFive.png')
+}
+
+.noTicks
+{
+	width:300px;
+	height:20px;
+	background-color:#FFFFFF;
+	border-style: none;
+}
+
+.outer-box{
+	width:300px;
+	height:20px;
+	background-color:#F2F2F2;
+	border-style: none;
+}
+.inner-box-bg{
+	height:20px;
+	background:#D8D8D8;
+}
+
+
+
+
+
+
+
+
+
+
+/*This is what gets rid of the border on the score bar column*/
+td.fill_pixels_score 
+{
+	width:300px;
+	border-style: none;
+	background-color: #FFFFFF;
+}
+
+tr.table_footer td
+{
+	font-weight: bold;
+	background-color: #F2F2F2; 
+	color: #000000;
+	border-style: none;
+	border-top:solid #000000;
+
+}
+
+.table_header
+{
+	text-align: left;
+	font-size: 24px;
+	font-weight: bold;
+	margin: 0;
+}
+/*
+.table_word_wrap
+{
+	style="word-wrap: break-word"
+}
+*/
+
+
+
+
+
+
+
+
+
+
+/*-------------------fixed table cell widths---------------------*/
+.inst_name div
+{
+	width:140px;
+}
+
+.class_crn
+{
+	width:150px;
+}
+
+.resp
+{
+	width:43px;
+}
+
+.std_dev
+{
+	width:42px;
+}
+
+.score
+{
+	width:47px;
+}
+
+.test_name div
+{
+	width:150px;
+}
+
+.ellipsis
+{
+	white-space:nowrap; 
+	overflow:hidden; 
+	style:overflow;
+	text-overflow: ellipsis;
+}

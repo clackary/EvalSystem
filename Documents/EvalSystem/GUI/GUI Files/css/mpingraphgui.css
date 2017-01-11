@@ -1,0 +1,94 @@
+/*	General Page Formating	*/
+body
+{
+    text-align:center;
+	background-color:rgb(210,219,224);
+    width:95vw;
+    height:100vh;
+    //font-size:1.2em;
+}
+div
+{
+    font-size:1.1em;
+}
+
+/* set font size of buttons and selectors*/
+button
+{
+    font-size:1em;
+}
+select
+{
+    font-size:.9em;
+}
+legend
+{
+    font-size: 1.3em;
+    text-align: left;
+}
+#crnInput
+{
+    font-size:.9em;
+}
+
+/*	Search Courses Section	*/
+.semesters, .departments, .instructors, .courses, .instructorTypes
+{
+	display:none;
+}
+#yearsSelected, #semestersSelected, #departmentsSelected, #instructorsSelected, #coursesSelected, #instructorTypesSelected
+{
+	display:none;
+	font-style:italic;
+    color: blue;
+}
+.hidden 
+{
+	display: none;
+}
+.unstyled-list 
+{
+	list-style: none;
+}
+
+#selectedCourses
+{
+	position:fixed;
+    width:100vw;
+    left:-5px;
+	/*
+    top:93vh;  position by default 
+    bottom:2vh;
+	*/
+    border-top:solid gray 1px;
+    background-color: rgb(107,161,191);
+    padding-bottom:10px;
+}
+#selectedCoursesLabel
+{
+    padding-top:5px;
+    padding-bottom:5px; 
+}
+#selectedCoursesList
+{
+    font-size:.8em;
+}
+
+.carets
+{
+    width:20px;
+}
+#caretLeft
+{
+    position:absolute;
+    left:20px;
+}
+#caretRight
+{
+    position:absolute;
+    right:20px;
+}
+#removeSelectedCoursesButton
+{
+    margin-top:20px;
+}
