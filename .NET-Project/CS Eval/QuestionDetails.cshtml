@@ -1,0 +1,18 @@
+﻿@{
+    Response.ContentType = "application/json";
+
+    string json = null;
+    if (Request["crn"] != null && Request["semester"] != null &&
+        Request["year"] != null && Request["questionID"] != null)
+    {
+        var crn = Convert.ToInt32(Request["crn"]);
+        var semester = Convert.ToInt32(Request["semester"]);
+        var year = Convert.ToInt32(Request["year"]);
+        var questionID = Convert.ToInt32(Request["questionID"]);
+
+        var details = EvalSystem.EvalSystemDB.GetQuestionDetails(crn, semester, year,questionID);
+       json = EvalSystem.QuestionDetailsModel.ToJsonString(details);
+
+
+    }
+}@Html.Raw(@json)

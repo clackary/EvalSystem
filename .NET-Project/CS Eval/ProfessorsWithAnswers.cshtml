@@ -1,0 +1,15 @@
+﻿@{
+    
+    Response.ContentType = "application/json";
+    
+    string json = null;
+    if(Request["dept"] != null)
+    {
+        var dept = Request["dept"].ToString();
+
+        var professors = EvalSystem.EvalSystemDB.GetProfessorsWithAnswers(dept);
+        json = EvalSystem.ProfessorsWithAnswersModel.ToJsonString(professors);
+        
+        
+    }@Html.Raw(@json)
+}

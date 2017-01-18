@@ -1,0 +1,12 @@
+﻿@{
+    string json = null;
+    if(Request["InstructorID"] != null && Request["InstructorID"].ToString() != "undefined")
+    {
+        Response.ContentType = "application/json";
+        
+        var instructorID = Convert.ToInt32(Request["InstructorID"].ToString());
+
+        var yearsTaught = EvalSystem.EvalSystemDB.GetYearsTaught(instructorID);
+        json = EvalSystem.YearsTaughtModel.ToJsonString(yearsTaught);
+    }
+}@Html.Raw(@json)
