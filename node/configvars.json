@@ -1,14 +1,14 @@
 {
-    "DatabaseConfig": {
-        "user": "w0115559",
-        "password": "WsEgiASE4750itb!",
-        "server": "titan.cs.weber.edu",
-        "database": "W0115559",
-        "port": 10433,
-        "connectionTimeout": 60000,
-        "pool": {
-            "max": 100
-        },
-        "parseJSON": true
-    }
+  "DatabaseConfig": {
+    "user": "w0115559",
+    "password": "WsEgiASE4750itb!",
+    "server": "titan.cs.weber.edu",
+    "database": "w0115559",
+    "port": 10433,
+    "connectionTimeout": 60000,
+    "pool": {
+      "max": 100
+    },
+    "parseJSON": true
+  }
 }
