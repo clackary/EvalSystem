@@ -26,7 +26,7 @@ This was in the original project, but they are supposedly moving to NodeJS, so a
 
 	1. Download the Visual Studio project. Do not just click the solution to open it, that won't work.
 	2. To open the project, open Visual Studio (2013 or newer). 
-	3. Go to File > Open > Website, and navigate to the project folder (../EvalSystem/.Net_Project/CS Eval).
+	3. Go to File > Open > Website, and navigate to the project folder (./EvalSystem/.Net_Project/CS Eval).
 	4. Before you run the project, make sure to go to Tools > Nuget Package Manager > Manage Nuget Packages for Solution
 		a. Update all packages in the project
 	5. You should now not have any errors when running the project. Just focus one of the .html files and click the run in google chrome button. Once you connect .NET to the database, you should be ready for testing. There is a database connection manager in .NET, all you have to do is create that connection there and change a few lines in the web.config files.
@@ -48,5 +48,6 @@ npm install
 npm run
 ```
 
+To understand NodeJS a little more, please read the nodereadme.md found in ./EvalSystem/node
 ###### Chitester Development Server
 Talk to Brad/Lance Ure (or whoever your chitester contact may end up being).
