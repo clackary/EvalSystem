@@ -37,16 +37,22 @@ This was in the original project, but they are supposedly moving to NodeJS, so a
 1. Install the latest version of Node.js at: https://nodejs.org/en/
 
 2. Go to node directory and...
-```
-npm install
-```
+	```
+	npm install
+	```
 
 3. Edit the configvars.json to have the proper data.
 
 4. Run the following command
-```
-npm run
-```
+	```
+	npm run start
+	```
+As long as there are no errors, your server is now running locally at the port specified in the ./node/bin/www file. 
+
+5. Open your web browser and navigate to 
+	```
+	127.0.0.1:[port specificied by bin/www]
+	```
 
 To understand NodeJS a little more, please read the nodereadme.md found in ./EvalSystem/node
 ###### Chitester Development Server
