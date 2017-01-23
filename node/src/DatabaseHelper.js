@@ -160,7 +160,7 @@ var DatabaseHelper = (function() {
                 return deferred.promise;
             }
         },
-<<<<<<< HEAD
+//<<<<<<< HEAD
         /*
             UNUSED
 
@@ -181,9 +181,9 @@ var DatabaseHelper = (function() {
             this method wrapped in a promise.
         */
         "getPinGraphData": {
-=======
-        "": {
->>>>>>> 63ea23e94ba2e6f84531e015a4889ba96c4c51d8
+//=======
+//        "": {
+//>>>>>>> 63ea23e94ba2e6f84531e015a4889ba96c4c51d8
             enumerable: false,
             configurable: false,
             writable: false,
