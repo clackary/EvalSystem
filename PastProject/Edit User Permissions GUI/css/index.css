@@ -1,0 +1,69 @@
+/*	General Page Formatting	*/
+body
+{
+	background-color:rgb(210,219,224);
+}
+.verticalRule
+{
+	position:absolute;
+	left:55.5%;
+	height:97%;
+	border-left:solid silver 1px;
+}
+
+#hint
+{
+    color:darkblue;
+    font-size:.8em;
+}
+
+.searchFieldset
+{
+	width: 55%;
+}
+.hidden 
+{
+	display: none;
+}
+.unstyled-list 
+{
+	list-style: none;
+}
+
+/* User Selection Formatting */
+/* .users is the only one that is visible by default */
+
+.permList, .permAdd, .permissionsButtons
+{
+	display:none;
+}
+
+#usersSelected
+{
+	display:none;
+	font-style:italic;	
+}
+
+/* Permissions Formatting */
+#permissionsContainer
+{
+	position:relative;
+}
+
+#permListSelect
+{
+	position:relative;
+	display:inline-block;
+}
+#permissionsButtons
+{
+	position:relative;
+	display:inline-block;
+	left:10%;
+}
+#permAddSelect
+{
+	position:relative;
+	display: inline-block;
+	left:20%;
+}
