@@ -1,19 +1,20 @@
 var app = angular.module("EvalSystem", []);
 
-app.controller("CollegesController", function($scope, $http) {
+app.controller("UserRolesController", function($scope, $http) {
 	$http(
 		{
 			method: 'GET',
-			url: 'https://icarus.cs.weber.edu/~nb06777/CS4450/v1/colleges'
+			url: 'https://icarus.cs.weber.edu/~nb06777/CS4450/v1/userroles'
 		}
 	)
-  /* .then(response => {
+  /*
+  .then(response => {
     console.log(response.data);
     return response.data;
   }) */
 	.then(
 		function successCallback(response) {
-			$scope.colleges = response.data;
+			$scope.userroles = response.data;
 		},
 		function errorCallback(response) {
 			console.log(response);
