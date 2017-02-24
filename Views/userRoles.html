@@ -37,41 +37,49 @@
       <thead>
       <tr>
         <td>
-          <a href="#" ng-click="sortType = 'Id'; sortReverse = !sortReverse">
+          <a href="#" ng-click="sortType = 'InstructorID'; sortReverse = !sortReverse">
             ID
-            <span ng-show="sortType == 'Id' && !sortReverse" class="fa fa-caret-down"></span>
-            <span ng-show="sortType == 'Id' && sortReverse" class="fa fa-caret-up"></span>
+            <span ng-show="sortType == 'InstructorID' && !sortReverse" class="fa fa-caret-down"></span>
+            <span ng-show="sortType == 'InstructorID' && sortReverse" class="fa fa-caret-up"></span>
           </a>
         </td>
         <td>
-          <a href="#" ng-click="sortType = 'FirstName'; sortReverse = !sortReverse">
+          <a href="#" ng-click="sortType = 'InstructorFirstName'; sortReverse = !sortReverse">
             First Name
-            <span ng-show="sortType == 'FirstName' && !sortReverse" class="fa fa-caret-down"></span>
-            <span ng-show="sortType == 'FirstName' && sortReverse" class="fa fa-caret-up"></span>
+            <span ng-show="sortType == 'InstructorFirstName' && !sortReverse" class="fa fa-caret-down"></span>
+            <span ng-show="sortType == 'InstructorFirstName' && sortReverse" class="fa fa-caret-up"></span>
           </a>
         </td>
         <td>
-          <a href="#" ng-click="sortType = 'LastName'; sortReverse = !sortReverse">
+          <a href="#" ng-click="sortType = 'InstructorLastName'; sortReverse = !sortReverse">
           Last Name
-            <span ng-show="sortType == 'LastName' && !sortReverse" class="fa fa-caret-down"></span>
-            <span ng-show="sortType == 'LastName' && sortReverse" class="fa fa-caret-up"></span>
+            <span ng-show="sortType == 'InstructorLastName' && !sortReverse" class="fa fa-caret-down"></span>
+            <span ng-show="sortType == 'InstructorLastName' && sortReverse" class="fa fa-caret-up"></span>
           </a>
         </td>
         <td>
-          <a href="#" ng-click="sortType = 'name'; sortReverse = !sortReverse">
+          <a href="#" ng-click="sortType = 'RoleName'; sortReverse = !sortReverse">
           Role
-            <span ng-show="sortType == 'name' && !sortReverse" class="fa fa-caret-down"></span>
-            <span ng-show="sortType == 'name' && sortReverse" class="fa fa-caret-up"></span>
+            <span ng-show="sortType == 'RoleName' && !sortReverse" class="fa fa-caret-down"></span>
+            <span ng-show="sortType == 'RoleName' && sortReverse" class="fa fa-caret-up"></span>
+          </a>
+        </td>
+        <td>
+          <a href="#" ng-click="sortType = 'DepartmentName'; sortReverse = !sortReverse">
+          Department
+            <span ng-show="sortType == 'DepartmentName' && !sortReverse" class="fa fa-caret-down"></span>
+            <span ng-show="sortType == 'DepartmentName' && sortReverse" class="fa fa-caret-up"></span>
           </a>
         </td>
       </tr>
     </thead>
       <tbody>
       <tr ng-repeat="item in userroles | orderBy:sortType:sortReverse | filter:userRoleSearch">
-        <td>{{ item.Id }}</td>
-        <td>{{ item.FirstName }}</td>
-        <td>{{ item.LastName }}</td>
-        <td>{{ item.name }}</td>
+        <td>{{ item.InstructorID }}</td>
+        <td>{{ item.InstructorFirstName }}</td>
+        <td>{{ item.InstructorLastName }}</td>
+        <td>{{ item.RoleName }}</td>
+        <td>{{ item.DepartmentName }}</td>
         <td><button ng-click="editFunction()">Edit</button></td>
       </tr>
       </tbody>
