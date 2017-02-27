@@ -1,0 +1,6 @@
+Always alias the columns in SQL database calls as such:
+Title case, like InstructorFirstName
+Always capitalize ID, like InstructorID
+Always append the name of the table where it is missing
+like id should be InstructorID
+

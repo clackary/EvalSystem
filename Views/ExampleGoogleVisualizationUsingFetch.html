@@ -1,0 +1,112 @@
+<html>
+<head>
+	<script src="https://www.google.com/uds"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	
+	<script type="text/JavaScript">
+	
+		// Load the Visualization API and the piechart package.
+		google.load('visualization', '1.0', {
+			'packages': ['corechart', 'table']
+		});
+
+		// Set a callback to run when the Google Visualization API is loaded.
+		google.setOnLoadCallback(drawChartXXXXXX);
+
+		// Callback that creates and populates a data table,
+		// instantiates the pie chart, passes in the data and
+		// draws it.
+		
+		function drawChartXXXXXX() {
+		
+			// Create the data table.
+			
+			////////////////////////////////////////////////////////
+			// CREATE A TABLE TO USE TO POPULATE THE VISUALIZATION
+			////////////////////////////////////////////////////////
+			var data = new google.visualization.DataTable();
+			
+			////////////////////////////////////////////////////////
+			// ADD COLUMNS HERE
+			////////////////////////////////////////////////////////
+			data.addColumn('string', 'Name');
+			data.addColumn('number', 'ID');
+			
+			////////////////////////////////////////////////////////
+			// GET DATA FROM OUR API
+			////////////////////////////////////////////////////////
+			fetch("https://icarus.cs.weber.edu/~nb06777/CS4450/v1/roles", { method: 'GET'})
+			.then(response => response.json())
+			
+			.then(response => response.map(row => [row.name, parseInt(row.id)]))
+			.then(response => {
+				console.log(response);
+				return response;
+			})
+			.then(
+				response => {
+					////////////////////////////////////////////////////////
+					// POPULATE OUR TABLE
+					////////////////////////////////////////////////////////
+					data.addRows(response);
+					
+					////////////////////////////////////////////////////////
+					// SET SOME OPTIONS
+					////////////////////////////////////////////////////////
+					var options = {
+						'title': 'Roles and their IDs',
+						// 'legend':'none',
+						'width': 800,
+						'height': 600
+					};
+					
+					////////////////////////////////////////////////////////
+					// Instantiate and draw our chart, passing in some options.
+					////////////////////////////////////////////////////////
+					var chart = new google.visualization.ScatterChart(document.getElementById('chart_div'));
+					
+					// try out the LineChart instead
+					// just swap the above line for the below line
+					// var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
+					chart.draw(data, options);
+					
+					
+					////////////////////////////////////////////////////////
+					// Do some other stuff if you want to with the data
+					////////////////////////////////////////////////////////
+					//var table = new google.visualization.Table(document.getElementById('table_div'));
+					//table.draw(data, options);
+					
+					// EXAMPLE CODE BEGINS HERE
+					/*
+					var items = data.getDistinctValues(0), html = '';
+					for(var i = 0, len = items.length; i < len; i++) {
+						html += '<li>'+items[i]+'</li>'   
+					}
+					
+					$('#list_ul').html(html);
+					*/
+				}
+			)
+			.catch(error => console.log("catch: " + error));
+		}
+	</script>
+</head>
+<body>
+	<h1>Look at me!!  I'm a chart from Google's Visualization API!!!</h1>
+
+	<!--
+	////////////////////////////////////////////////////////
+	// Do some other stuff if you want to with the data
+	////////////////////////////////////////////////////////
+	-->
+	<!--
+	<ul id="list_ul"></ul>
+	<div id="table_div"></div>
+	-->
+	
+	<!-- DRAW OUR TABLE HERE -->
+	<div id="chart_div"></div>
+	
+</body>
+</html>
