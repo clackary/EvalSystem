@@ -74,7 +74,7 @@ function runReport()
            "success": function () { window.location.href = "https://www.google.com"; }, //TODO: put actual page in
            "error": function () { alert("Communication error with server. Please try again later.");}
        }
-       
+
         $.ajax(settings);
 
     }
@@ -193,17 +193,16 @@ function getSelectionFromDropdown(dropdown)
                 {
                     resetSearch();
                 }
-                    selectedItems[0] = "NoVal"; //we reset the form    
+                    selectedItems[0] = "NoVal"; //we reset the form
             }
             else
             {
-                selectedItems.push(optionText);    
+                selectedItems.push(optionText);
             }
         }
     }
     return selectedItems;
 }
-
 
 //holds the values to be passed to the server
 var years = [];
@@ -214,7 +213,6 @@ var departments = [];
 var departmentsString = "";
 var courses = [];
 var coursesString = "";
-
 
 //used to find what has been selected in the Course Search
 function setSelected(selectedClass) //returns 1 for nothing selected and 0 for no errors
@@ -228,7 +226,7 @@ function setSelected(selectedClass) //returns 1 for nothing selected and 0 for n
 
     //getting selected items
     var selectedItems = getSelectionFromDropdown(sClass);
-    
+
     if (selectedItems[0] == "NoVal")
     {
         return 1; //we reset the search
@@ -257,7 +255,7 @@ function setSelected(selectedClass) //returns 1 for nothing selected and 0 for n
         else {
             divInnerHTML += selectedItems[i] + ", ";
         }
-            
+
         //set up JSON elements to pass to SQL statements
         switch(selectedClass)
         {
@@ -294,7 +292,7 @@ function setSelected(selectedClass) //returns 1 for nothing selected and 0 for n
     }
 
     selectedDiv.innerHTML += divInnerHTML;
-    return 0;    
+    return 0;
 }
 
 //resets the Course Search back to "page load" status
@@ -377,9 +375,10 @@ function postYears()
     {
         "async": true,
         "crossDomain": true,
-        "url": "http://weberevalnodeserver.herokuapp.com/pingraph/getSemesters",
-        //"url": "getSemesters.cfm",
-        "method": "POST",
+        //"url": "http://weberevalnodeserver.herokuapp.com/pingraph/getSemesters",
+        //"method": "POST",
+        "url": "https://icarus.cs.weber.edu/~nb06777/CS4450/v1/semesters",
+        "method": "GET",
         "headers": {
             "content-type": "application/json",
             "cache-control": "no-cache",
@@ -408,6 +407,7 @@ function postYears()
         }
     });
 }
+
 function postSemesters()
 {
     var data = "{\n    \"yearList\": [" + yearsString + "],\n"+
@@ -431,9 +431,10 @@ function postSemesters()
     {
         "async": true,
         "crossDomain": true,
-        "url": "http://weberevalnodeserver.herokuapp.com/pingraph/getDepartments",
+        //"url": "http://weberevalnodeserver.herokuapp.com/pingraph/getDepartments",
+        "url" : "https://icarus.cs.weber.edu/~nb06777/CS4450/v1/departments",
         //"url": "getDepartments.cfm",
-        "method": "POST",
+        "method": "GET",
         "headers": {
             "content-type": "application/json",
             "cache-control": "no-cache",
@@ -461,6 +462,7 @@ function postSemesters()
         }
     });
 }
+
 function postDepartments()
 {
     var data = "{\n    \"yearList\": [" + yearsString + "],\n" +
@@ -513,11 +515,12 @@ function postDepartments()
         {
            courses.options[0] = new Option("-No options for current selections-", "");
         }
-    });    
+    });
 }
+
 function postCourses()
 {
- 
+
 }
 
 //sets the values of each search box
@@ -529,16 +532,17 @@ function setYearsOptions()
      * which is the year WSU was founded       */
 
     var years = document.getElementById("years");
-    
+
     for(var i=new Date().getFullYear(); i>=1989; i--)
     {
         years.options[years.options.length] = new Option(i, i);
     }
 }
+
 function setSemestersOptions(response)
 {
     var semesters = document.getElementById("semesters");
-    
+
     //convert each object into option
     for (var i = 0; i < response.length;i++)
     {
@@ -546,6 +550,7 @@ function setSemestersOptions(response)
         semesters.options[i] = new Option(response[i].semester, response[i].semester);
     }
 }
+
 function setDepartmentsOptions(response)
 {
     var departments = document.getElementById("departments");
@@ -556,6 +561,7 @@ function setDepartmentsOptions(response)
         departments.options[i] = new Option(response[i].departments, response[i].departments);
     }
 }
+
 function setCoursesOptions(response)
 {
     var courses = document.getElementById("courses");
