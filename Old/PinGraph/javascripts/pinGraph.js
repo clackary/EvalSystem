@@ -11,7 +11,7 @@ var ViewModel = (function(ko) {
 	}
 	this.self = this;
 
-	
+
 	var likertMin = 0.00;
 	var likertMax = 5.00;
 	var leftScale = 0.00;
@@ -96,7 +96,7 @@ if(httpRequest.ReadyState === XMLHttpRequest.DONE)
 {
 	if(httpRequest.status === 200)
 	{
-		
+
               text =	httpRequest.responseText
 	}
 	else {
@@ -108,13 +108,15 @@ if(httpRequest.ReadyState === XMLHttpRequest.DONE)
 };
 //httpRequest.open('GET', 'http://icarus.cs.weber.edu/~in79151/EvalSystem_SE3/jsonobj.php');
 //httpRequest.send(null);
- 
+
         // turn this JSON variable into a node js call
-	
+
         var request= new XMLHttpRequest();
-       
+
         //request.open('GET','http://icarus.cs.weber.edu/~js75361/testset.php',false);
-        request.open('GET','http://icarus.cs.weber.edu/~in79151/EvalSystem_SE3/testset.php',false);
+        //request.open('GET','http://icarus.cs.weber.edu/~in79151/EvalSystem_SE3/testset.php',false);
+				//The following test set is hosted, but is just a json object
+				request.open('GET','http://icarus.cs.weber.edu/~nb06777/CS4450/testset.php',false);
         request.send();
         if(request.status==200){
 
@@ -130,7 +132,7 @@ if(httpRequest.ReadyState === XMLHttpRequest.DONE)
 		for (var i = 0; i < leng; i++) {
 			// randomly generated mock data
 			var tempScore = jsonObject[i].Score.toFixed(2);
-			
+
 
 			var tempColor = (jsonObject[i].permission == 1) ? "red" : (jsonObject[i].permission == 2) ? "green" : "blue";
 			var semester =jsonObject[i].semester;
@@ -139,7 +141,7 @@ if(httpRequest.ReadyState === XMLHttpRequest.DONE)
 			var teachr = jsonObject[i].teacher;
             var tempCourse = jsonObject[i].course;
 			var tempCRN = jsonObject[i].bannerCRN;
-			var tempSemesterNumber=jsonObject[i].semesterNumber; 
+			var tempSemesterNumber=jsonObject[i].semesterNumber;
 			var tempTestID=jsonObject[i].TestId;
 			//assign info to an object with mock data
 			var tempObject = { marker: tempMarker, course: tempCourse, instructor: teachr, score: tempScore, year: year, term: semester,
@@ -160,7 +162,7 @@ if(httpRequest.ReadyState === XMLHttpRequest.DONE)
 
 
 
-	
+
 		sortPinGuiArr();
 		sortScore();
 		updateScaleData();
@@ -361,7 +363,7 @@ if(httpRequest.ReadyState === XMLHttpRequest.DONE)
 		})
 
 
-		
+
 
 		for (var i = leftScale; i <= rightScale; i += .5) {
 			if (likertMin <= i && i <= likertMax) {
@@ -372,7 +374,7 @@ if(httpRequest.ReadyState === XMLHttpRequest.DONE)
 				newRelativeDiv.appendChild(halfPoint);
 			}
 		}
-		
+
 		//CALCULATE AND POSITION LEFTMOST DATAPOINT ("LOW")
 		leftRightCenterBoundary({side: "l", container: newRelativeDiv});
 
@@ -518,10 +520,10 @@ if(httpRequest.ReadyState === XMLHttpRequest.DONE)
 
     // add the stable.js into the repositoy
     // change all thing.sort into stable(thing
-	
+
 	function sortPinGuiArr()
 	{
-		
+
 		arr=  stable(pinGUIArray, function (a, b) {
            var retval;
 			if (a.score < b.score) {
@@ -535,7 +537,7 @@ if(httpRequest.ReadyState === XMLHttpRequest.DONE)
 		});
 			createPinGuiArray(arr);
 	}
-	
+
 	function createPinGuiArray(arr)
 	{
 		//self.pinGUIArray.removeAll();
@@ -548,7 +550,7 @@ if(httpRequest.ReadyState === XMLHttpRequest.DONE)
 			*/
 			pinGUIArray[i] = arr[i];
 		}
-		
+
 	}
 
 	self.sortScore = function() {
@@ -644,7 +646,7 @@ createDataArray(arr);
        // window.open("https://chitester1dev.weber.edu:6838/misc/weber/csevals/class_breakdown.html?CRN=21513&Semester=2&Year=2015&TestID=69210&displayDistribution=false");
 		window.open("https://chitester1dev.weber.edu:6838/misc/weber/csevals/class_breakdown.html?CRN="+crn+"&Semester="+semester+"&Year="+year+"&TestID="+TestID+"&displayDistribution=false");
     }
-	
+
 
 	/**
 	 * Exposed methods of the view model
