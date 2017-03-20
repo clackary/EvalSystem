@@ -20,4 +20,7 @@ app.controller("UserRolesController", function($scope, $http) {
 			console.log(response);
 		}
 	);
+	$scope.editFunction = function() {
+		console.log("Edit clicked.");
+}
 });
