@@ -52,6 +52,7 @@ function runReport()
 
         data += "]}";
 
+		console.log(data);
         //grays out the screen and displays loading
         var popup = document.getElementsByClassName("popup");
         popup[0].style.display = "inline";
@@ -490,10 +491,8 @@ function postSemesters()
         }
     });
 	*/
-	
-	console.log(data);
-	
-	fetch("https://icarus.cs.weber.edu/~nb06777/CS4450/v1/getDepartments",  {
+
+	fetch("https://icarus.cs.weber.edu/~nb06777/CS4450/v1/getDepartments/",  {
 		method: "POST",
 		headers: {
 			"Content-Type": "application/x-www-form-urlencoded"
@@ -535,6 +534,7 @@ function postDepartments()
     }
     data += "]\n}";
 
+	/*
     var settings =
     {
         "async": true,
@@ -551,11 +551,13 @@ function postDepartments()
         "data": data,
         "error": function () { alert("Communication error with server. Please try again later."); }
     }
+	*/
 
     //adding loading option to instructorType select
     var courses = document.getElementById("courses");
     courses.options[courses.options.length] = new Option("Loading values...", "");
 
+	/*
     $.ajax(settings).done(function (response)
     {
         // var response = a json array of objects
@@ -567,7 +569,30 @@ function postDepartments()
         {
            courses.options[0] = new Option("-No options for current selections-", "");
         }
-    });    
+    });   
+	*/
+	
+	fetch("https://icarus.cs.weber.edu/~nb06777/CS4450/v1/getCourses/",  {
+		method: "POST",
+		headers: {
+			"Content-Type": "application/x-www-form-urlencoded"
+		},
+		body: data
+	})
+	.then(response => response.json())
+	.then(function(response) {
+		// var response = a json array of objects
+        if (response.length != 0)
+        {
+            setCoursesOptions(response);
+        }
+        else
+        {
+           courses.options[0] = new Option("-No options for current selections-", "");
+        }
+	}, function(e) {
+		alert("Error submitting form! Code :d");
+	});
 }
 function postCourses()
 {
