@@ -4,9 +4,9 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
 	<title>Pin Graph Report</title>
-	<link rel="stylesheet" type="text/css" href="../CSS/pingraphgui.css">
-    <script src="../Controllers/pingraphgui.js"></script>
-    <script src="../Includes/jquery-1.12.3.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="../../CSS/pingraphgui.css">
+    <script src="../../Controllers/pingraphgui.js"></script>
+    <script src="../../Includes/jquery-1.12.3.min.js"></script>
 </head>
 <body onload="setYearsOptions()">
 
@@ -28,7 +28,7 @@
 
         <div id="removeInstructions" style="display:none;color:red;font-size:.8em"><em>Select courses to be removed...</em><br /></div>
         <button type="button" id="removeSelectedCoursesButton" onclick="removeCourses()">Remove Courses from Selected List</button>
-			
+
 	</fieldset>
 </div>
 
@@ -41,11 +41,11 @@
 
 		<legend>Search Course</legend>
 
-<!--YEARS SELECTIONS-->			
-		<div id="yearSelect"> 
+<!--YEARS SELECTIONS-->
+		<div id="yearSelect">
 			<lable class="years">Select Years</lable><br class="years">
 				<select id="years" class="years" size="10" multiple>
-                    <!--These options will be dynamically populated-->	
+                    <!--These options will be dynamically populated-->
 				</select>
 		</div><br class="years">
 
@@ -54,7 +54,7 @@
 
 		<!--'yearsSelected' used for when years have been selected-->
 		<div id="yearsSelected" class="years" >
-			Selected Years: 
+			Selected Years:
 		</div><br class="years" style="display:inline">
 <!--end years selections-->
 
@@ -71,7 +71,7 @@
 		<button type="button" id="resetSearch2" class="semesters" onclick="resetSearch()">Reset Form</button>
 
 		<div id="semestersSelected" class="semesters" >
-			Selected Semesters: 
+			Selected Semesters:
 		</div><br class="semesters">
 <!--end semester selections-->
 
@@ -88,7 +88,7 @@
 		<button type="button" id="resetSearch3" class="departments" onclick="resetSearch()">Reset Form</button>
 
 		<div id="departmentsSelected" class="departments" >
-			Selected Departments: 
+			Selected Departments:
 		</div><br class="departments">
 <!--end department selections-->
 
@@ -108,7 +108,7 @@
 	</fieldset>
 
 </div>
-    
+
     <button type="button" id="viewPinReportbutton type=" onclick="runReport()" style="margin-top:5px;margin-left:2px">
         View Pin Graph Report</button>
 
