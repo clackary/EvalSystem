@@ -1,0 +1,56 @@
+/*	General Page Formating	*/
+body
+{
+	background-color:rgb(210,219,224);
+}
+.verticalRule
+{
+	position:absolute;
+	left:55.5%;
+	height:97%;
+	border-left:solid silver 1px;
+}
+
+#hint
+{
+    color:darkblue;
+    font-size:.8em;
+}
+
+/*	Search Courses Section	*/
+.semesters, .departments, .instructors, .instructorTypes, .courses
+{
+	display:none;
+}
+#yearsSelected, #semestersSelected, #departmentsSelected, #instructorsSelected, #coursesSelected, #instructorTypesSelected
+{
+	display:none;
+	font-style:italic;
+}
+#selectedCourses
+{
+	position:absolute;
+	left:56%;
+	width:38%;
+}
+.searchFieldset
+{
+	width: 55%;
+}
+.hidden 
+{
+	display: none;
+}
+.unstyled-list 
+{
+	list-style: none;
+}
+select
+{
+    min-width:75px;
+}
+
+#selectedCourses
+{
+    margin-bottom:20px;
+}

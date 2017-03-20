@@ -114,7 +114,8 @@ if(httpRequest.ReadyState === XMLHttpRequest.DONE)
         var request= new XMLHttpRequest();
        
         //request.open('GET','http://icarus.cs.weber.edu/~js75361/testset.php',false);
-        request.open('GET','http://icarus.cs.weber.edu/~in79151/EvalSystem_SE3/testset.php',false);
+		//request.open('GET','http://icarus.cs.weber.edu/~in79151/EvalSystem_SE3/testset.php',false);
+		request.open('GET','http://icarus.cs.weber.edu/~nb06777/CS4450/v1/testset.php',false);
         request.send();
         if(request.status==200){
 
