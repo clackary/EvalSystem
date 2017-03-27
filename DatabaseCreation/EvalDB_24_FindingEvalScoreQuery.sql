@@ -1,4 +1,4 @@
-use CS4450Spring2017
+USE CS4450Spring2017
 GO
 
 select d.ID as 'Distractor ID', d.questionID, d.text as 'Distractor text', q.text as 'Question text'--, dts.score, dts.text
