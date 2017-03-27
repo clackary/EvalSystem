@@ -25,6 +25,7 @@
 			Content: The API used to allow comunication between the frontend and the database.
 			Notes: The API is written in PHP and must be hosted on a web server. Additionally, file paths and API calls will have to be updated to point to where it is hosted. The paths that need to be changed are in the following files:
 				***List files here***
+			***I'm aware this folder doesn't currently exist, but I'd like to add it when we hand over the project***
 			
 		Controllers
 			Content: The AngularJS controllers used in the Views.

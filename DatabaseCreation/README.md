@@ -4,4 +4,4 @@ The database we were using was not very complete and we had to add a lot of info
 
 
 ***Should the "Semester" table be renamed "Evals_Semester" for consistancies sake?***
-***Are we even really using the "Semester" table?***
+***Are we using the "Semester" table?***
