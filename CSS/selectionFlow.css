@@ -1,0 +1,21 @@
+/* -- IDs -- */
+#reportSelection {
+  background-color: #6495ED;
+}
+
+#selectionPanes {
+  background-color: #E0FFFF;
+}
+
+#reportDiv {
+  background-color: #DCDCDC;
+}
+
+/* -- Classes -- */
+.pane {
+  float: left;
+  width: 33%;
+  height: 400px;
+  overflow-y:scroll;
+  background-color: #7FFFD4;
+}
