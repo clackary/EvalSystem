@@ -1,0 +1,151 @@
+/* -- IDs -- */
+#reportSelection {
+  background-color: #6495ED;
+}
+
+#selectionPanes {
+  background-color: #E0FFFF;
+}
+
+#reportDiv {
+  float: left;
+  width: 100%;
+  height: 100%;
+  background-color: #DCDCDC;
+}
+
+/* -- Classes -- */
+.pane {
+  float: left;
+  width: calc(100%/3);
+  height: 400px;
+  overflow-y:scroll;
+  background-color: #7FFFD4;
+}
+
+/* -- Slider Styles -- */
+.accordion.horizontal {
+    -webkit-box-shadow: 0px 75px 35px -55px rgba(10, 30, 65, 0.6);
+    -moz-box-shadow: 0px 75px 35px -55px rgba(10, 30, 65, 0.6);
+    box-shadow: 0px 75px 35px -55px rgba(10, 30, 65, 0.6);
+    font-family: Arial, Helvetica, sans-serif;
+    border-color: #505050;
+    border-style: solid;
+    border-width: 0px;
+    border-radius: 8px;
+    margin: 0 auto;
+    height: 413px;
+    width: 100%;
+}
+
+.accordion.horizontal > ul > li,
+.horizontal .accordion-title,
+.horizontal .accordion-content,
+.horizontal .accordion-separator {
+    float: none;
+}
+
+.accordion.horizontal > ul > li {
+    background-color: #1f1f1f;
+    margin-right: -0px;
+    margin-bottom: -290px;
+}
+
+.horizontal .accordion-select:checked ~ .accordion-separator {
+    margin-right: 0px;
+    margin-bottom: 290px;
+}
+
+.horizontal .accordion-title,
+.horizontal .accordion-select  {
+    background-color: #2d2d2d;
+    color: #ffffff;
+    width: 100%;
+    height: 40px;
+    font-size: 15px;
+}
+
+.horizontal .accordion-title span {
+    margin-bottom: 20px;
+    margin-left: 20px;
+}
+
+.horizontal .accordion-select:hover ~ .accordion-title,
+.horizontal .accordion-select:checked ~ .accordion-title {
+    background-color: #3068cc;
+}
+
+.horizontal .accordion-title span  {
+    transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    -ms-writing-mode: lr-tb;
+    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=0);
+    margin-bottom: 0px;
+    line-height: 40px;
+}
+
+.horizontal .accordion-content {
+    background-color: #3e3e3e;
+    color: #f5f2f0;
+    height: 234px;
+    width: 100%;
+    padding: 28px;
+	margin: 0;
+}
+
+.horizontal .accordion-title,
+.horizontal .accordion-select:checked ~ .accordion-content {
+    margin-right: 1px;
+    margin-bottom: 1px;
+}
+
+/* Do not change following properties, they aren't
+generated automatically and are common for each slider. */
+.accordion {
+    overflow: hidden;
+}
+
+.accordion > ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    width: 101%;
+}
+
+.accordion > ul > li,
+.accordion-title {
+    position: relative;
+}
+
+.accordion-select {
+    cursor: pointer;
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    left: 0;
+    margin: 0;
+    z-index: 1;
+}
+
+.accordion-title span {
+    display: block;
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    white-space: nowrap;
+}
+
+.accordion-content {
+    position: relative;
+    overflow: auto;
+	margin: 0;
+}
+
+.accordion-separator {
+    transition: margin 0.3s ease 0.1s;
+    -o-transition: margin 0.3s ease 0.1s;
+    -moz-transition: margin 0.3s ease 0.1s;
+    -webkit-transition: margin 0.3s ease 0.1s;
+}
