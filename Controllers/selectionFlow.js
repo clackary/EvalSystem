@@ -61,6 +61,8 @@ app.controller("DeptController", function($scope, $http) {
 /* -- Course Controller --
   TODO Needs endpoint and corresponding URL for get method
   Depends on previously select Term and Department, possibly Instructor
+  TODO To make endpoint, needs a sql query to get courses based on prior
+  selections.
 */
 app.controller("CourseController", function($scope, $http) {
 	$http(
@@ -90,6 +92,8 @@ app.controller("CourseController", function($scope, $http) {
 /* -- Instructor Controller --
   TODO Needs endpoint and corresponding URL for get method
   Depends on previously select Term and Department, possibly Course
+  TODO Also needs a working sql query to get list of instructors based on prior
+  selections.
 */
 app.controller("InstructorController", function($scope, $http) {
 	$http(
