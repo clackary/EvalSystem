@@ -1,0 +1,128 @@
+<!DOCTYPE>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Selection Flow Page</title>
+  <link rel="stylesheet" type="text/css" href="../CSS/selectionFlow.css">
+</head>
+
+<div id="reportSelection">
+  <h3>Report Selection</h3>
+  <form action="">
+    <input type="radio" name="reportType" value="multiEval" checked> Multi Eval<br>
+    <input type="radio" name="reportType" value="singleEval"> Single Eval<br>
+    <input type="radio" name="reportType" value="boxWhisker"> Box and Whisker
+  </form>
+</div>
+
+<div id="selectionPanes">
+  <h3>Selection Panes</h3>
+
+  <div class="accordion horizontal">
+      <ul>
+          <li>
+              <input type="radio" name="select" class="accordion-select" checked />
+              <div class="accordion-title">
+                  <span>Title</span>
+              </div>
+              <div class="accordion-content">
+                  Content
+              </div>
+              <div class="accordion-separator"></div>
+          </li>
+          <li>
+              <input type="radio" name="select" class="accordion-select" />
+              <div class="accordion-title">
+                  <span>Title</span>
+              </div>
+              <div class="accordion-content" id="container">
+                  <div id="left">
+  					<table>
+  						<tr>
+  							<td> hello </td>
+  							<td> hello </td>
+  							<td> hello </td>
+  							<td> hello </td>
+  							<td> hello </td>
+  						</tr>
+  						<tr>
+  							<td> hello </td>
+  							<td> hello </td>
+  							<td> hello </td>
+  							<td> hello </td>
+  							<td> hello </td>
+  						</tr>
+  					</table>
+  				</div>
+  				<div id="middle">
+  					<table>
+  						<tr>
+  							<td> hello </td>
+  							<td> hello </td>
+  							<td> hello </td>
+  							<td> hello </td>
+  							<td> hello </td>
+  						</tr>
+  						<tr>
+  							<td> hello </td>
+  							<td> hello </td>
+  							<td> hello </td>
+  							<td> hello </td>
+  							<td> hello </td>
+  						</tr>
+  					</table>
+  				</div>
+  				<div id="right">
+  					<table>
+  						<tr>
+  							<td> hello </td>
+  							<td> hello </td>
+  							<td> hello </td>
+  							<td> hello </td>
+  							<td> hello </td>
+  						</tr>
+  						<tr>
+  							<td> hello </td>
+  							<td> hello </td>
+  							<td> hello </td>
+  							<td> hello </td>
+  							<td> hello </td>
+  						</tr>
+  					</table>
+  				</div>
+              </div>
+              <div class="accordion-separator"></div>
+          </li>
+          <li>
+              <input type="radio" name="select" class="accordion-select" />
+              <div class="accordion-title">
+                  <span>Title</span>
+              </div>
+              <div class="accordion-content">
+                  Content
+              </div>
+              <div class="accordion-separator"></div>
+          </li>
+      </ul>
+  </div>
+<!--
+  <div class="paneColumns">
+
+    <div class="pane">
+      <h4>Terms</h4>
+    </div>
+
+    <div class="pane">
+      <h4>Departments</h4>
+    </div>
+
+    <div class="pane">
+      <h4>Courses</h4>
+    </div>
+  </div>
+-->
+</div>
+
+<div id="reportDiv">
+  <h3>Report</h3>
+</div>

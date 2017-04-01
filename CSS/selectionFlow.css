@@ -1,0 +1,13 @@
+/* -- IDs -- */
+#selectionPanes {
+  background-color: #E0FFFF;
+}
+
+/* -- Classes -- */
+.pane {
+  float: left;
+  width: calc(100%/4);
+  height: 400px;
+  overflow-y:scroll;
+  background-color: #7FFFD4;
+}
