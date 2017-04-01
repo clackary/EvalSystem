@@ -119,3 +119,28 @@ app.controller("InstructorController", function($scope, $http) {
 		console.log("Edit clicked.");
 }
 });
+
+app.controller("InstructorCourseController", function($scope, $http) {
+    $http(
+        {
+            method: 'GET',
+            //url: 'https://icarus.cs.weber.edu/~nb06777/CS4450/v1/departments'
+        }
+    )
+	/*
+	 .then(response => {
+	 console.log(response.data);
+	 return response.data;
+	 }) */
+        .then(
+            function successCallback(response) {
+                $scope.depts = response.data;
+            },
+            function errorCallback(response) {
+                console.log(response);
+            }
+        );
+    $scope.editFunction = function() {
+        console.log("Edit clicked.");
+    }
+});
