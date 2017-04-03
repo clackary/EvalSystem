@@ -21,13 +21,14 @@
 				<h4 style="display:flex; justify-content:center; margin:auto">Select Terms to include</h4>
 				<span style="display:flex; justify-content:center; margin-top:10px">
 					<select id="termList" size="10" multiple>
-						<option ng-repeat="term in terms">
+						<option ng-repeat="term in terms" value="{{term.SemesterID}}">
 							{{ term.Year + " " + term.SemesterName }}
 						</option>
 					</select>
 				</span>
 				<span style="display:flex; justify-content:center; margin-top:10px">
-					<button name="select" onclick="getElementById('pane2-button').click()">Next</button>
+					<button name="select" onclick="buildTermsSelected()">Next</button>
+					<!-- <button name="select" onclick="getElementById('pane2-button').click()">Next</button> -->
 				</span>
 			</div>
 			<div class="accordion-separator"></div>
@@ -47,7 +48,9 @@
 					</select>
 				</span>
 				<span style="display:flex; justify-content:center; margin-top:10px">
-					<button name="select" onclick="getElementById('pane3-button').click()">Next</button>
+				
+					<button name="select" onclick="buildDepartmentsSelected()">Next</button>
+					<!-- <button name="select" onclick="getElementById('pane3-button').click()">Next</button> -->
 				</span>
 			</div>
 			<div class="accordion-separator"></div>
@@ -64,7 +67,8 @@
 					<input name="sortBy-Radio" type="radio" value="Course">Course<br>
 				</div>
 				<span style="display:flex; justify-content:center; margin-top:10px">
-					<button name="select" onclick="getElementById('pane4-button').click()">Next</button>
+					<button name="select" onclick="setCourseOrInstructorAngular()">Next</button>
+					<!-- <button name="select" onclick="getElementById('pane4-button').click()">Next</button> -->
 				</span>
 			</div>
 			<div class="accordion-separator"></div>
