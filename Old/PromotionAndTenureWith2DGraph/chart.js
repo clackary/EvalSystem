@@ -51,8 +51,8 @@ function loadChart(chartData) {
         extSem = semester.replace(/[-:\s]/g, '');
         var jSem = $("#chart_div").append('<div id=' + extSem + ' class="singleSemester">&nbsp;</div>');
 
-        if (semesterEvals.length > 100) {
-            console.log("chose Whis chart");
+        if (semesterEvals.length > 10) {
+            console.log("chose Whiskar chart");
             extData = CompileChartData(chartData);
             google.setOnLoadCallback(drawChart());
         } else {
@@ -225,7 +225,7 @@ function generateTable(objArray) {
     var labelArray = getLabels(objArray);
     var colWidth = 80;
     labelArray.forEach(function (label) {
-        TocHtml = TocHtml + "<table class='tocTable'><tbody>";
+        TocHtml = TocHtml + "<table style=\"z-index: 100000;\" class='tocTable'><tbody>";
         TocHtml = TocHtml + "<tr><td colspan='4'>" + label + "</td></tr>";
         TocHtml = TocHtml + "<tr class='thead'><td width='" + colWidth + "'>CRN</td><td width='" + colWidth + "'>Score</td><td width='" + colWidth + "'>Standard Deviation</td><td width='" + colWidth + "'>Num Responses</td></tr>";
         objArray.forEach(function (eval) {

@@ -41,10 +41,13 @@ ul.leaders span + span {
     margin-top:25px;
 }
 .tocTable {
-
     border-collapse: collapse;
     margin:auto;
     text-align:center;
+}
+
+.tocTable tr td{
+	padding: 0;
 }
 
 .thead {
