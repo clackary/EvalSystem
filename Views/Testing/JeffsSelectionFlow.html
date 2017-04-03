@@ -201,7 +201,7 @@
 				<h4 style="display:flex; justify-content:center; margin:auto">Select Instructors/Courses to include</h4>
 				<span style="display:flex; justify-content:center; margin-top:10px">
 					<select id="ICList1" size="10" multiple>
-						<!-- TODO needs change to instructor or course instead of dept -->
+						<!-- TODO does this need to change to instructor or course instead of dept? -->
 						<option ng-repeat="dept in depts" value="{{ dept.DepartmentCode }}">
 							{{ ICList1.DepartmentName }}
 						</option>
@@ -218,6 +218,7 @@
 			<div class="accordion-title">
 				<span>Report Selection</span>
 			</div>
+			<!-- TODO does this need to change to a different controller? -->
 			<div class="accordion-content" ng-controller="InstructorCourseController">
 				<h4 style="display:flex; justify-content:center; margin:auto">Report Options:</h4>
 				<div style="; width:300px; margin:auto">
