@@ -35,7 +35,7 @@ app.controller("TermController", function($scope, $http) {
 function buildTermsSelected(){
 	var terms = document.getElementById("termList").options;
 	termsSelected = [];
-	
+
 	// strip out the information we need to get objects in the form of
 	// {year: 2017, semester: 2}
 	for(var i=0; i<terms.length; i++){
@@ -46,7 +46,7 @@ function buildTermsSelected(){
 				});
 		}
 	}
-	
+
 	console.log(termsSelected);
 	document.getElementById('pane2-button').click();
 }
@@ -107,7 +107,12 @@ app.controller("DeptController", function($scope, $http) {
 			console.log(response);
 		}
 	);
+<<<<<<< HEAD
 	$scope.buildDepartmentsSelected = function(){
+=======
+
+		$scope.buildDepartmentsSelected = function() {
+>>>>>>> origin/master
         var departments = document.getElementById("deptList").options;
         departmentsSelected = [];
 
@@ -153,9 +158,6 @@ app.controller("CourseController", function($scope, $http) {
 			console.log(response);
 		}
 	);
-	$scope.editFunction = function() {
-		console.log("Edit clicked.");
-}
 });
 
 /* -- Instructor Controller --
@@ -165,7 +167,7 @@ app.controller("CourseController", function($scope, $http) {
   selections.
 */
 app.controller("InstructorController", function($scope, $http) {
-	
+
 	$http(
 		{
 			method: 'GET',
@@ -191,12 +193,6 @@ app.controller("InstructorController", function($scope, $http) {
 });
 
 app.controller("InstructorCourseController", function($scope, $http) {
-	//TODO: this isn't hooking up with the front endpoint
-	// $scope.setCourseOrInstructorAngular should fire off when Next is hit
-	// when choosing Course or Instructor radio buttons
-	
-	// setCourseOrInstructor() sets the global variable courseOrInstructor
-	// as whatever radio button was selected and makes the next accordion piece come forward
 	$scope.setCourseOrInstructorAngular = function(){
 		setCourseOrInstructor();
 		if(courseOrInstructor == "Instructor"){
@@ -251,8 +247,8 @@ app.controller("InstructorCourseController", function($scope, $http) {
 			);
 		}
 	}
-	
-    
+
+
     $scope.editFunction = function() {
         console.log("Edit clicked.");
     }
