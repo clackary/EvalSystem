@@ -51,24 +51,24 @@ function buildTermsSelected(){
 	document.getElementById('pane2-button').click();
 }
 
-function buildDepartmentsSelected(){
-	var departments = document.getElementById("deptList").options;
-	departmentsSelected = [];
-	
-	// strip out the information we need to get objects in the form of
-	// {year: 2017, semester: 2}
-	for(var i=0; i<departments.length; i++){
-		if(departments[i].selected){
-			departmentsSelected.push({
-					DepartmentCode: departments[i].value,
-					DepartmentName: departments[i].text
-				});
-		}
-	}
-	
-	console.log(departmentsSelected);
-	document.getElementById('pane3-button').click();
-}
+// function buildDepartmentsSelected(){
+// 	var departments = document.getElementById("deptList").options;
+// 	departmentsSelected = [];
+//
+// 	// strip out the information we need to get objects in the form of
+// 	// {year: 2017, semester: 2}
+// 	for(var i=0; i<departments.length; i++){
+// 		if(departments[i].selected){
+// 			departmentsSelected.push({
+// 					DepartmentCode: departments[i].value,
+// 					DepartmentName: departments[i].text
+// 				});
+// 		}
+// 	}
+//
+// 	console.log(departmentsSelected);
+// 	document.getElementById('pane3-button').click();
+// }
 
 function setCourseOrInstructor(){
 	var radioButtonList = document.getElementsByName("sortBy-Radio");
@@ -110,6 +110,24 @@ app.controller("DeptController", function($scope, $http) {
 	$scope.editFunction = function() {
 		console.log("Edit clicked.");
 }
+	$scope.buildDepartmentsSelected = function(){
+        var departments = document.getElementById("deptList").options;
+        departmentsSelected = [];
+
+        // strip out the information we need to get objects in the form of
+        // {year: 2017, semester: 2}
+        for(var i=0; i<departments.length; i++){
+            if(departments[i].selected){
+                departmentsSelected.push({
+                    DepartmentCode: departments[i].value,
+                    DepartmentName: departments[i].text
+                });
+            }
+        }
+
+        console.log(departmentsSelected);
+        document.getElementById('pane3-button').click();
+    }
 });
 
 /* -- Course Controller --
