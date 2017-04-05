@@ -49,7 +49,7 @@
 					</select>
 				</span>
 				<span style="display:flex; justify-content:center; margin-top:10px">
-				
+
 					<button name="select" onclick="buildDepartmentsSelected()">Next</button>
 					<!-- <button name="select" onclick="getElementById('pane3-button').click()">Next</button> -->
 				</span>
@@ -68,8 +68,13 @@
 					<input name="sortBy-Radio" type="radio" value="Course">Course<br>
 				</div>
 				<span style="display:flex; justify-content:center; margin-top:10px">
+<<<<<<< HEAD
 					<!-- 'getElementById('pane4-button').click()' is needed  in order to have the next button progress the view to the next pane. made it so that the button does both functions during onClick. -Jeff -->
 					<button name="select" onclick="setCourseOrInstructorAngular()">Next</button>
+=======
+					<button name="select" ng-controller="InstructorCourseController" ng-click="setCourseOrInstructorAngular()">Next</button>
+					<!-- <button name="select" onclick="getElementById('pane4-button').click()">Next</button> -->
+>>>>>>> refs/remotes/origin/master
 				</span>
 			</div>
 			<div class="accordion-separator"></div>
