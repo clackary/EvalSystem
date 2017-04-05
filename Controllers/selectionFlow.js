@@ -212,13 +212,19 @@ app.controller("InstructorCourseController", function($scope, $http) {
 				);
 		}
 		else if(courseOrInstructor == "Course"){
-				let departmentsSelectedJSONString = "";
+				let departmentsSelectedJSONString = "{";
+				departmentsSelectedJSONString += "\"departments\":" + JSON.stringify(departmentsSelected);
+				departmentsSelectedJSONString += "}";
+
+				console.log(departmentsSelectedJSONString);
+				/*  JSON.stringify({});
 				for(let i=0; i<departmentsSelected.length; i++){
 					departmentsSelectedJSONString += "{" +
 						"\"DepartmentCode\" : \"" + departmentsSelected[i].DepartmentCode + "\"," +
 						"\"DepartmentName\" : \"" + departmentsSelected[i].DepartmentName + "\"" +
 					"},";
 				}
+				*/
 				$http(
 				{
 					method: 'POST',
