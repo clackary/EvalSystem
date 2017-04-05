@@ -107,9 +107,6 @@ app.controller("DeptController", function($scope, $http) {
 			console.log(response);
 		}
 	);
-	$scope.editFunction = function() {
-		console.log("Edit clicked.");
-}
 	$scope.buildDepartmentsSelected = function(){
         var departments = document.getElementById("deptList").options;
         departmentsSelected = [];
