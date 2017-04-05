@@ -107,12 +107,7 @@ app.controller("DeptController", function($scope, $http) {
 			console.log(response);
 		}
 	);
-<<<<<<< HEAD
 	$scope.buildDepartmentsSelected = function(){
-=======
-
-		$scope.buildDepartmentsSelected = function() {
->>>>>>> origin/master
         var departments = document.getElementById("deptList").options;
         departmentsSelected = [];
 
