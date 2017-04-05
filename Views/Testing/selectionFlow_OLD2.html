@@ -1,0 +1,64 @@
+<!DOCTYPE>
+<html lang="en" ng-app="EvalSystem">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Selection Flow Page</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.js"></script>
+  <script src="../Controllers/selectionFlow.js"></script>
+  <link rel="stylesheet" type="text/css" href="../CSS/selectionFlow.css">
+</head>
+<body>
+<div id="selectionPanes">
+  <h3>Selection Panes</h3>
+
+
+  <div class="paneColumns">
+
+    <div class="pane" ng-controller="TermController">
+      <h4>Terms</h4>
+      <select id="termList" size="10" multiple>
+        <option ng-repeat="term in terms">
+          {{ term.Year + " " + term.SemesterName }}
+        </option>
+      </select>
+    </div>
+
+    <div class="pane" ng-controller="DeptController">
+      <h4>Departments</h4>
+      <select id="deptList" size="10" multiple>
+        <option ng-repeat="dept in depts" value="{{ dept.DepartmentCode }}">
+          {{ dept.DepartmentName }}
+        </option>
+      </select>
+    </div>
+
+    <div class="pane" ng-controller="CourseController">
+      <h4>Courses</h4>
+      <select id="courseList" size="10" multiple>
+        <option ng-repeat="course in courses" value="">
+          {{ course.subjectCode + " " + course.courseNumber }}
+        </option>
+      </select>
+    </div>
+
+    <div class="pane" ng-controller="InstructorController">
+      <h4>Instructors</h4>
+      <select id="instructorList" size="10" multiple>
+        <option ng-repeat="instructor in instructors" value="">
+          {{ instructor.FirstName + " " + instructor.LastName }}
+        </option>
+      </select>
+    </div>
+  </div>
+
+</div>
+
+<div id="reportDiv">
+  <h3>Report Options</h3>
+  <!--
+  Should display relevant report option formats, for example 'Per term' or
+  'Per Dept', maybe radio buttons. Probably also a generate report button,
+  and reset form button.
+  -->
+</div>
+</body>
