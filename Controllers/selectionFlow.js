@@ -29,58 +29,26 @@ app.controller("TermController", function($scope, $http) {
 	);
 	$scope.editFunction = function() {
 		console.log("Edit clicked.");
-	}
+	};
+    $scope.buildTermsSelected = function(){
+        var terms = document.getElementById("termList").options;
+        termsSelected = [];
+
+        // strip out the information we need to get objects in the form of
+        // {year: 2017, semester: 2}
+        for(var i=0; i<terms.length; i++){
+            if(terms[i].selected){
+                termsSelected.push({
+                    Year: terms[i].text.substr(0, 4),
+                    SemesterID: terms[i].value
+                });
+            }
+        }
+
+        console.log(termsSelected);
+        document.getElementById('pane2-button').click();
+    }
 });
-
-function buildTermsSelected(){
-	var terms = document.getElementById("termList").options;
-	termsSelected = [];
-
-	// strip out the information we need to get objects in the form of
-	// {year: 2017, semester: 2}
-	for(var i=0; i<terms.length; i++){
-		if(terms[i].selected){
-			termsSelected.push({
-					Year: terms[i].text.substr(0, 4),
-					SemesterID: terms[i].value
-				});
-		}
-	}
-
-	console.log(termsSelected);
-	document.getElementById('pane2-button').click();
-}
-
-// function buildDepartmentsSelected(){
-// 	var departments = document.getElementById("deptList").options;
-// 	departmentsSelected = [];
-//
-// 	// strip out the information we need to get objects in the form of
-// 	// {year: 2017, semester: 2}
-// 	for(var i=0; i<departments.length; i++){
-// 		if(departments[i].selected){
-// 			departmentsSelected.push({
-// 					DepartmentCode: departments[i].value,
-// 					DepartmentName: departments[i].text
-// 				});
-// 		}
-// 	}
-//
-// 	console.log(departmentsSelected);
-// 	document.getElementById('pane3-button').click();
-// }
-
-function setCourseOrInstructor(){
-	var radioButtonList = document.getElementsByName("sortBy-Radio");
-	for(let i=0; i<radioButtonList.length; i++){
-		if(radioButtonList[i].checked){
-			courseOrInstructor = radioButtonList[i].value;
-			break;
-		}
-	}
-
-	document.getElementById('pane4-button').click();
-}
 
 
 /* -- Department Controller --
@@ -188,8 +156,16 @@ app.controller("InstructorController", function($scope, $http) {
 });
 
 app.controller("InstructorCourseController", function($scope, $http) {
-	$scope.setCourseOrInstructorAngular = function(){
-		setCourseOrInstructor();
+	$scope.setCourseOrInstructor = function(){
+        var radioButtonList = document.getElementsByName("sortBy-Radio");
+        for(let i=0; i<radioButtonList.length; i++){
+            if(radioButtonList[i].checked){
+                courseOrInstructor = radioButtonList[i].value;
+                break;
+            }
+        }
+
+        document.getElementById('pane4-button').click();
 		if(courseOrInstructor == "Instructor"){
 			$http(
 				{
@@ -241,7 +217,7 @@ app.controller("InstructorCourseController", function($scope, $http) {
 				}
 			);
 		}
-	}
+	};
 
 
     $scope.editFunction = function() {
