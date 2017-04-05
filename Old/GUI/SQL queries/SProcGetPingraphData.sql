@@ -1,8 +1,10 @@
 -- Create CreateJson Stored Procedure
-USE W0115559
+--USE W0115559
+USE CS4450Spring2017
 GO
 
-CREATE PROCEDURE [dbo].[sp_GetPingraphData]
+--CREATE PROCEDURE [dbo].[sp_GetPingraphData]
+ALTER PROCEDURE [dbo].[sp_GetPingraphData]
 
 @CourseList VARCHAR(MAX),
 @UserID int
@@ -134,4 +136,4 @@ BEGIN
 END
 
 --Brad Peterson's User ID
---EXEC sp_GetPingraphData 'CS1010,CS1400,CS2420,CS2410,CS3280', 887969243
+EXEC sp_GetPingraphData 'CS1010,CS1400,CS2420,CS2410,CS3280', 887969243
