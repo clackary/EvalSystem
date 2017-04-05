@@ -48,7 +48,7 @@
 					</select>
 				</span>
 				<span style="display:flex; justify-content:center; margin-top:10px">
-				
+
 					<button name="select" onclick="buildDepartmentsSelected()">Next</button>
 					<!-- <button name="select" onclick="getElementById('pane3-button').click()">Next</button> -->
 				</span>
@@ -67,7 +67,7 @@
 					<input name="sortBy-Radio" type="radio" value="Course">Course<br>
 				</div>
 				<span style="display:flex; justify-content:center; margin-top:10px">
-					<button name="select" onclick="setCourseOrInstructorAngular()">Next</button>
+					<button name="select" ng-controller="InstructorCourseController" ng-click="setCourseOrInstructorAngular()">Next</button>
 					<!-- <button name="select" onclick="getElementById('pane4-button').click()">Next</button> -->
 				</span>
 			</div>
