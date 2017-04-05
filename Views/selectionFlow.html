@@ -48,8 +48,7 @@
 					</select>
 				</span>
 				<span style="display:flex; justify-content:center; margin-top:10px">
-				
-					<button name="select" onclick="buildDepartmentsSelected()">Next</button>
+					<button name="select" ng-click="buildDepartmentsSelected()">Next</button>
 					<!-- <button name="select" onclick="getElementById('pane3-button').click()">Next</button> -->
 				</span>
 			</div>
@@ -67,7 +66,7 @@
 					<input name="sortBy-Radio" type="radio" value="Course">Course<br>
 				</div>
 				<span style="display:flex; justify-content:center; margin-top:10px">
-					<button name="select" onclick="setCourseOrInstructorAngular()">Next</button>
+					<button name="select" ng-controller="InstructorCourseController" ng-click="setCourseOrInstructorAngular()">Next</button>
 					<!-- <button name="select" onclick="getElementById('pane4-button').click()">Next</button> -->
 				</span>
 			</div>
@@ -76,10 +75,10 @@
 		<li>
 			<input id="pane4-button" type="radio" name="select" class="accordion-select" />
 			<div class="accordion-title">
-				<span>Instructors/Courses</span>
+				<span id="pane4-title">Instructors/Courses</span>
 			</div>
 			<div class="accordion-content" ng-controller="InstructorCourseController">
-				<h4 style="display:flex; justify-content:center; margin:auto">Select Instructors/Courses to include</h4>
+				<h4 style="display:flex; justify-content:center; margin:auto">Select {{}} to include</h4>
 				<span style="display:flex; justify-content:center; margin-top:10px">
 					<select id="ICList1" size="10" multiple>
 						<!-- TODO does this need to change to instructor or course instead of dept? -->
