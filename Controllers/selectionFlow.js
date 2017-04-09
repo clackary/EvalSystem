@@ -192,7 +192,7 @@ app.controller("InstructorCourseController", function($scope, $http) {
 				departmentsSelectedJSONString += "\"departments\":" + JSON.stringify(departmentsSelected);
 				departmentsSelectedJSONString += "}";
 
-				console.log(departmentsSelectedJSONString);
+				//console.log(departmentsSelectedJSONString);
 				/*  JSON.stringify({});
 				for(let i=0; i<departmentsSelected.length; i++){
 					departmentsSelectedJSONString += "{" +
@@ -201,11 +201,12 @@ app.controller("InstructorCourseController", function($scope, $http) {
 					"},";
 				}
 				*/
-				$http(
+			$http(
 				{
+					url: 'https://icarus.cs.weber.edu/~nb06777/CS4450/v1/courseNumbers',
 					method: 'POST',
 					data: departmentsSelectedJSONString,
-					url: 'https://icarus.cs.weber.edu/~nb06777/CS4450/v1/courses'
+					headers: {'Content-Type': 'application/x-www-form-urlencoded'}
 				}
 			)
 			/*
