@@ -1,5 +1,5 @@
-Crazy simple example of using Angular
-http://codepen.io/nateonguitar/pen/ZLaPry?editors=1010
+## Update as of Spring 2017
+Everything contained in this folder is what our group inherited from the previous group. We also refer to this folder as the Attic.
 
 #EvalSystem
 
