@@ -189,18 +189,26 @@ app.controller("InstructorCourseController", function($scope, $http) {
 				);
 		}
 		else if(courseOrInstructor == "Course"){
-				let departmentsSelectedJSONString = "";
+				let departmentsSelectedJSONString = "{";
+				departmentsSelectedJSONString += "\"departments\":" + JSON.stringify(departmentsSelected);
+				departmentsSelectedJSONString += "}";
+
+				//console.log(departmentsSelectedJSONString);
+				/*  JSON.stringify({});
 				for(let i=0; i<departmentsSelected.length; i++){
 					departmentsSelectedJSONString += "{" +
 						"\"DepartmentCode\" : \"" + departmentsSelected[i].DepartmentCode + "\"," +
 						"\"DepartmentName\" : \"" + departmentsSelected[i].DepartmentName + "\"" +
 					"},";
 				}
-				$http(
+				*/
+			$http(
 				{
+					/*url: 'https://icarus.cs.weber.edu/~nb06777/CS4450/v1/courseNumbers',*/
+          url: apiPath + 'courseNumbers'
 					method: 'POST',
 					data: departmentsSelectedJSONString,
-					url: apiPath + 'courses'
+					headers: {'Content-Type': 'application/x-www-form-urlencoded'}
 				}
 			)
 			/*
