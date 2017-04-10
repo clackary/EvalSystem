@@ -205,7 +205,7 @@ app.controller("InstructorCourseController", function($scope, $http) {
 			$http(
 				{
 					/*url: 'https://icarus.cs.weber.edu/~nb06777/CS4450/v1/courseNumbers',*/
-          url: apiPath + 'courseNumbers'
+          url: apiPath + 'courseNumbers',
 					method: 'POST',
 					data: departmentsSelectedJSONString,
 					headers: {'Content-Type': 'application/x-www-form-urlencoded'}
