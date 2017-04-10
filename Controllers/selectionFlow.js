@@ -22,6 +22,7 @@ app.controller("TermController", function($scope, $http) {
   }) */
 	.then(
 		function successCallback(response) {
+			console.log(response.data);
 			$scope.terms = response.data;
 		},
 		function errorCallback(response) {
@@ -70,6 +71,7 @@ app.controller("DeptController", function($scope, $http) {
   }) */
 	.then(
 		function successCallback(response) {
+			console.log(response.data);
 			$scope.depts = response.data;
 		},
 		function errorCallback(response) {
@@ -157,6 +159,7 @@ app.controller("InstructorController", function($scope, $http) {
 });
 
 app.controller("InstructorCourseController", function($scope, $http) {
+	
 	$scope.setCourseOrInstructor = function(){
         var radioButtonList = document.getElementsByName("sortBy-Radio");
         for(let i=0; i<radioButtonList.length; i++){
@@ -193,7 +196,7 @@ app.controller("InstructorCourseController", function($scope, $http) {
 				departmentsSelectedJSONString += "\"departments\":" + JSON.stringify(departmentsSelected);
 				departmentsSelectedJSONString += "}";
 
-				//console.log(departmentsSelectedJSONString);
+				console.log(departmentsSelectedJSONString);
 				/*  JSON.stringify({});
 				for(let i=0; i<departmentsSelected.length; i++){
 					departmentsSelectedJSONString += "{" +
@@ -205,7 +208,7 @@ app.controller("InstructorCourseController", function($scope, $http) {
 			$http(
 				{
 					/*url: 'https://icarus.cs.weber.edu/~nb06777/CS4450/v1/courseNumbers',*/
-          url: apiPath + 'courseNumbers'
+          url: apiPath + 'courseNumbers',
 					method: 'POST',
 					data: departmentsSelectedJSONString,
 					headers: {'Content-Type': 'application/x-www-form-urlencoded'}
@@ -219,7 +222,8 @@ app.controller("InstructorCourseController", function($scope, $http) {
 			.then(
 				function successCallback(response) {
 					console.log(response.data);
-					$scope.courses = response.data;
+					$scope.courseNumbers = response.data;
+					//console.log($scope.courseNumbers);
 				},
 				function errorCallback(response) {
 					console.log(response);
