@@ -78,13 +78,16 @@
 				<span id="pane4-title">Instructors/Courses</span>
 			</div>
 			<div class="accordion-content" ng-controller="InstructorCourseController">
-				<h4 style="display:flex; justify-content:center; margin:auto">Select {{}} to include</h4>
+      <!-- <div class="accordion-content" ng-controller="DeptController"> -->
+				<h4 style="display:flex; justify-content:center; margin:auto">Select to include</h4>
 				<span style="display:flex; justify-content:center; margin-top:10px">
-					<select id="ICList1" size="10" multiple>
-						<!-- TODO does this need to change to instructor or course instead of dept? -->
-						<option ng-repeat="dept in depts" value="{{ dept.DepartmentCode }}">
-							{{ ICList1.DepartmentName }}
+					<select id="ICList" size="10" multiple>
+            <option ng-repeat="c in courseNumbers" value="{{ c.Subject }}">
+              {{ c.Subject + " " + c.CourseNumber }}
 						</option>
+            <!-- <option ng-repeat="dept in depts" value="{{ dept.DepartmentCode }}">
+              {{ dept.DepartmentName }}
+            </option> -->
 					</select>
 				</span>
 				<span style="display:flex; justify-content:center; margin-top:10px">
