@@ -2,6 +2,7 @@ var app = angular.module("EvalSystem", []);
 var termsSelected = [];
 var departmentsSelected = [];
 var courseOrInstructor = "";
+var apiPath = "https://icarus.cs.weber.edu/~nb06777/CS4450/v1/";
 
 /* -- TermController --
   A term refers to a combination of Year + Semester in the format "2017 Spring"
@@ -11,7 +12,7 @@ app.controller("TermController", function($scope, $http) {
 	$http(
 		{
 			method: 'GET',
-			url: 'https://icarus.cs.weber.edu/~nb06777/CS4450/v1/yearSemesters'
+			url:  apiPath + 'yearSemesters'
 		}
 	)
   /*
@@ -59,7 +60,7 @@ app.controller("DeptController", function($scope, $http) {
 	$http(
 		{
 			method: 'GET',
-			url: 'https://icarus.cs.weber.edu/~nb06777/CS4450/v1/departments'
+			url: apiPath + 'departments'
 		}
 	)
   /*
@@ -105,7 +106,7 @@ app.controller("CourseController", function($scope, $http) {
 	$http(
 		{
 			method: 'GET',
-			//url: 'https://icarus.cs.weber.edu/~nb06777/CS4450/v1/departments'
+			//url: apiPath + 'departments'
 		}
 	)
   /*
@@ -134,7 +135,7 @@ app.controller("InstructorController", function($scope, $http) {
 	$http(
 		{
 			method: 'GET',
-			//url: 'https://icarus.cs.weber.edu/~nb06777/CS4450/v1/departments'
+			//url: apiPath + 'departments'
 		}
 	)
   /*
@@ -170,7 +171,7 @@ app.controller("InstructorCourseController", function($scope, $http) {
 			$http(
 				{
 					method: 'GET',
-					//url: 'https://icarus.cs.weber.edu/~nb06777/CS4450/v1/departments'
+					//url: apiPath + 'departments'
 				}
 			)
 			/*
@@ -199,7 +200,7 @@ app.controller("InstructorCourseController", function($scope, $http) {
 				{
 					method: 'POST',
 					data: departmentsSelectedJSONString,
-					url: 'https://icarus.cs.weber.edu/~nb06777/CS4450/v1/courses'
+					url: apiPath + 'courses'
 				}
 			)
 			/*
