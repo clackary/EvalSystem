@@ -146,11 +146,11 @@ VALUES                       (@@Identity,   1,     'extremely poor');
 
 Or even ignoring the ntext value because it was bad practice and now redundant...
 ```
-	INSERT INTO 
-	Distractors (questionID, sequence, formatID, correct)
-	VALUES      (961901    , 1       , 1       , 0      );
+INSERT INTO 
+Distractors (questionID, sequence, formatID, correct)
+VALUES      (961901    , 1       , 1       , 0      );
 
-	INSERT INTO 
-	Evals_DistractorTextAndScore (distractorID, score, text            )
-	VALUES                       (@@Identity,   1,     'extremely poor');
+INSERT INTO 
+Evals_DistractorTextAndScore (distractorID, score, text            )
+VALUES                       (@@Identity,   1,     'extremely poor');
 ```
