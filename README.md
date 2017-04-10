@@ -1,6 +1,7 @@
 ## Project Summary
-	What is the Eval System?
-	The Eval System is an extension to the Chitester Eval, that is built by students for a better way of tracking, and collecting data for professors through the evaluations that are made available at the end of each semester. The goal of the project is to have an accurate and relatively easy to use system that is also mobile friendly that allows the user -- who is generally a secretary, professor, Dean, or any other relevant member of the staff -- to pull up evaluation reports on a professor for multiple courses/semesters/departments and compare them for Tenure and Promotion as well as other desired features. There is also a function that will access the Chitester site and print a list of the reports that are requested and have those printed reports formatted in a desirable way.
+What is the Eval System?
+
+The Eval System is an extension to the Chitester Eval, that is built by students for a better way of tracking, and collecting data for professors through the evaluations that are made available at the end of each semester. The goal of the project is to have an accurate and relatively easy to use system that is also mobile friendly that allows the user -- who is generally a secretary, professor, Dean, or any other relevant member of the staff -- to pull up evaluation reports on a professor for multiple courses/semesters/departments and compare them for Tenure and Promotion as well as other desired features. There is also a function that will access the Chitester site and print a list of the reports that are requested and have those printed reports formatted in a desirable way.
   
 ## Component overview
   
@@ -11,55 +12,53 @@
   The Promotion and Tenure report is a report that shows the student evals for the course, and how the professor did based on those students opinions as well as supplying a chart that shows how they did compared to other semesters. It also has other important information, though most of this information is really only necessary for the dean. To see more, take a look on chitester.
 
 ## The Project So Far...
-	This project has passed through a number of groups at this point, and keeping track of what happened when is somewhat difficult. What follows is my best reconstruction of the project's timeline as of spring 2017:
+This project has passed through a number of groups at this point, and keeping track of what happened when is somewhat difficult. What follows is my best reconstruction of the project's timeline as of spring 2017:
 	
-		Summer 2016: The project began. It was first made within .NET, but there appears to be very little documentation. In the current file structure these files can be found in Old->.NET-Project->CS Eval
+Summer 2016: The project began. It was first made within .NET, but there appears to be very little documentation. In the current file structure these files can be found in Old->.NET-Project->CS Eval
 	
-		Fall 2016: The second group took over the project. The backend technology was changed from .NET to NodeJS and much of their time was spent converting the project. Luckilly, this group did leave a fair amount of documentation behind. The explainations of each piece are generally good, though there seems to be little in the way of descriptions of how the pieces fit together. Additionally, there are a couple of important notes missing, such as there being no mention of the heroku API that was being used in some of the files. There were also a number of SQL files to add tables to the database, but little to no explaination of what they were for. How much of this group's work was simply converting to the new technology and how much focused on expanding the project, I am not sure.
+Fall 2016: The second group took over the project. The backend technology was changed from .NET to NodeJS and much of their time was spent converting the project. Luckilly, this group did leave a fair amount of documentation behind. The explainations of each piece are generally good, though there seems to be little in the way of descriptions of how the pieces fit together. Additionally, there are a couple of important notes missing, such as there being no mention of the heroku API that was being used in some of the files. There were also a number of SQL files to add tables to the database, but little to no explaination of what they were for. How much of this group's work was simply converting to the new technology and how much focused on expanding the project, I am not sure.
 		
-		Spring 2017: The technology requirements again changed. Now the technology to be used is AngularJS. As such, much of the focus has been on converting existing files to the new technology.   
+Spring 2017: The technology requirements again changed. Now the technology to be used is AngularJS. As such, much of the focus has been on converting existing files to the new technology.   
 	
 ## File structure explaination
-###Overview of current folders:
-		API:
-			Content: The API used to allow comunication between the frontend and the database.
-			Notes: The API is written in PHP and must be hosted on a web server. Additionally, file paths and API calls will have to be updated to point to where it is hosted. The paths that need to be changed are in the following files:
-				***List files here***
-			***I'm aware this folder doesn't currently exist, but I'd like to add it when we hand over the project***
+### Overview of current folders:
+#### API:
+Content: The API used to allow comunication between the frontend and the database.
+Notes: The API is written in PHP and must be hosted on a web server. Additionally, file paths and API calls will have to be updated to point to where it is hosted. The paths that need to be changed are in the following files:
 			
-		Controllers
-			Content: The AngularJS controllers used in the Views.
-			Notes:
+#### Controllers:
+Content: The AngularJS controllers used in the Views.
+Notes:
 			
-		CSS
-			Content: The CSS files used by the Views.
-			Notes:
+#### CSS
+Content: The CSS files used by the Views.
+Notes:
 			
-		DatabaseCreation
-			Content: A series of SQL scripts used to construct a local database. Each script both creates the table named in the script and populates it with test data. 
-			Notes: It wouldn't hurt to ask Chitester for an updated data dump to insert into each table. I would also recommend setting up the database on a remote server instead of just working with a local one. (Might actually be required for the API to work.) We (spring 2017) spoke to Rob Hilton about setting it up on Titan and did so with minimal fuss.
-			***Need to clean this folder out some and move SQL scripts scattered throughout the project into it***
-			***Does 22_Functions_StoredProcs have all of both?***
+#### DatabaseCreation
+Content: A series of SQL scripts used to construct a local database. Each script both creates the table named in the script and populates it with test data. 
+Notes: It wouldn't hurt to ask Chitester for an updated data dump to insert into each table. I would also recommend setting up the database on a remote server instead of just working with a local one. (Might actually be required for the API to work.) We (spring 2017) spoke to Rob Hilton about setting it up on Titan and did so with minimal fuss.
+*Need to clean this folder out some and move SQL scripts scattered throughout the project into it*
+*Does 22_Functions_StoredProcs have all of both?*
 			
-		Includes
-			Content: Javascript libraries used by the rest of the project.
-			Notes:
+#### Includes
+Content: Javascript libraries used by the rest of the project.
+Notes:
+
+#### Old
+Content: The old files inherited from the previous group. 
+Notes: These are all the out dated .NET and NodeJS files.
 			
-		Old
-			Content: The old files inherited from the previous group. 
-			Notes: These are all the out dated .NET and NodeJS files.
-			
-		Views
-			Content: The web pages that users will see and interact with.
-			Notes:
+#### Views
+Content: The web pages that users will see and interact with.
+Notes:
 		
 ### Code conventions
-
+*List code conventions here*
 
 ### Database changes
-	List of added tables
+List of added tables
 		
-	List of added stored procedures
+List of added stored procedures
 		
 
 // *****************************************************************
@@ -86,64 +85,67 @@ The "distractorID" refers to "Distractors.ID".  When you join Distractors with
 Evals_DistractorTextAndScore you will get 2 new columns.
 
 This query...
-
-	SELECT * 
-	FROM Distractors 
-	WHERE questionID = 961901;
+```
+SELECT * 
+FROM Distractors 
+WHERE questionID = 961901;
+```
 
 Yields...
-                                                        (ntext)
-	|ID      |questionID |sequence |formatID |correct |Distractors.text   |
-	-----------------------------------------------------------------------
-	|3626242 |961901     |1        |1        |0       |1 (extremely poor) |
-	|3626243 |961901     |2        |1        |0       |2 (very poor)      |
-	|3626244 |961901     |3        |1        |0       |3 (poor)           |
-	|3626245 |961901     |4        |1        |0       |4 (average)        |
-	|3626246 |961901     |5        |1        |0       |5 (good)           |
-	|3626247 |961901     |6        |1        |0       |6 (very good)      |
-	|3626248 |961901     |7        |1        |0       |7 (extremely good) |
+```
+|ID      |questionID |sequence |formatID |correct |Distractors.text   |
+-----------------------------------------------------------------------
+|3626242 |961901     |1        |1        |0       |1 (extremely poor) |
+|3626243 |961901     |2        |1        |0       |2 (very poor)      |
+|3626244 |961901     |3        |1        |0       |3 (poor)           |
+|3626245 |961901     |4        |1        |0       |4 (average)        |
+|3626246 |961901     |5        |1        |0       |5 (good)           |
+|3626247 |961901     |6        |1        |0       |6 (very good)      |
+|3626248 |961901     |7        |1        |0       |7 (extremely good) |
+```
 
 Joining in the new Evals_DistractorTextAndScore table will give more useful information for analytics 
 without having to do string manipulation on potentially 10s of thousands of rows.  This process is much 
 faster now, butyou will have to insert into Evals_DistractorTextAndScore whenever you insert into Distractors.
 
 This query...
-
-	SELECT * 
-	FROM Distractors d
-	JOIN Evals_DistractorTextAndScore e
-	ON d.ID = e.DistractorID
-	WHERE questionID = 961901;
+```
+SELECT * 
+FROM Distractors d
+JOIN Evals_DistractorTextAndScore e
+ON d.ID = e.DistractorID
+WHERE questionID = 961901;
+```
 
 Yields...
-                                                       (ntext)             (int)  (nvarchar)
-	|ID      |questionID |sequence |formatID |correct |Distractors.text   |score |e.text         |
-	----------------------------------------------------------------------------------------------
-	|3626242 |961901     |1        |1        |0       |1 (extremely poor) |1     |extremely poor |
-	|3626243 |961901     |2        |1        |0       |2 (very poor)      |2     |very poor      |
-	|3626244 |961901     |3        |1        |0       |3 (poor)           |3     |poor           |
-	|3626245 |961901     |4        |1        |0       |4 (average)        |4     |average        |
-	|3626246 |961901     |5        |1        |0       |5 (good)           |5     |good           |
-	|3626247 |961901     |6        |1        |0       |6 (very good)      |6     |very good      |
-	|3626248 |961901     |7        |1        |0       |7 (extremely good) |7     |extremely good |
+```
+|ID      |questionID |sequence |formatID |correct |Distractors.text   |score |e.text         |
+----------------------------------------------------------------------------------------------
+|3626242 |961901     |1        |1        |0       |1 (extremely poor) |1     |extremely poor |
+|3626243 |961901     |2        |1        |0       |2 (very poor)      |2     |very poor      |
+|3626244 |961901     |3        |1        |0       |3 (poor)           |3     |poor           |
+|3626245 |961901     |4        |1        |0       |4 (average)        |4     |average        |
+|3626246 |961901     |5        |1        |0       |5 (good)           |5     |good           |
+|3626247 |961901     |6        |1        |0       |6 (very good)      |6     |very good      |
+|3626248 |961901     |7        |1        |0       |7 (extremely good) |7     |extremely good |
+```
 
 We would recommend completely abandoning the "Distractors.text" column, maybe just leave it null 
 from now on.  ntext is depricated and is EXTREMELY slow.
 
-
 Example INSERT...
+```
+INSERT INTO 
+Distractors (questionID, sequence, formatID, correct, text                )
+VALUES      (961901    , 1       , 1       , 0      , '1 (extremely poor)');
 
-	INSERT INTO 
-	Distractors (questionID, sequence, formatID, correct, text                )
-	VALUES      (961901    , 1       , 1       , 0      , '1 (extremely poor)');
-
-	INSERT INTO 
-	Evals_DistractorTextAndScore (distractorID, score, text            )
-	VALUES                       (@@Identity,   1,     'extremely poor');
-
+INSERT INTO 
+Evals_DistractorTextAndScore (distractorID, score, text            )
+VALUES                       (@@Identity,   1,     'extremely poor');
+```
 
 Or even ignoring the ntext value because it was bad practice and now redundant...
-
+```
 	INSERT INTO 
 	Distractors (questionID, sequence, formatID, correct)
 	VALUES      (961901    , 1       , 1       , 0      );
@@ -151,4 +153,4 @@ Or even ignoring the ntext value because it was bad practice and now redundant..
 	INSERT INTO 
 	Evals_DistractorTextAndScore (distractorID, score, text            )
 	VALUES                       (@@Identity,   1,     'extremely poor');
-
+```
