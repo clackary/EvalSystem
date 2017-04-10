@@ -1,7 +1,9 @@
-Crazy simple example of using Angular
-http://codepen.io/nateonguitar/pen/ZLaPry?editors=1010
+## Update as of Spring 2017
+Everything contained in this folder is what our group inherited from the previous group. We've also come to refer to this folder as the Attic.
+It contains PinGraph resources, which are components for one of the reports that Brad would like to see. It looks like a lot of work went into this page, so we were working to incorporate this into our reports. While we were able to see hardcoded test data here, we were never able to get it up and running with live data.
+It also contains PromotionTenure resources (also known as the Box and Whisker report). Again, this page may show test data, but we were also never able to get this to display live data.
 
-#EvalSystem
+## EvalSystem
 
 This is the document that will help you setup everything you need in order to get the EvalSystem working on your computer. Be advised that if we missed a step, feel free to add it to this document.
 
