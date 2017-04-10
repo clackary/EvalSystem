@@ -1,3 +1,4 @@
+var apiPath = "https://icarus.cs.weber.edu/~nb06777/CS4450/v1/";
 
 //removes courses from the selected courses list
 function removeCourses()
@@ -63,7 +64,7 @@ function runReport()
        {
            "async": true,
            "crossDomain": true,
-           "url": "https://icarus.cs.weber.edu/~nb06777/CS4450/v1/getPingraphData",
+           "url": apiPath + "getPingraphData",
            "method": "POST",
            "headers": {
                "content-type": "application/json",
@@ -413,7 +414,7 @@ function postYears()
         }
     });
 	*/
-	fetch("https://icarus.cs.weber.edu/~nb06777/CS4450/v1/getSemesters",  {
+	fetch( apiPath + "getSemesters",  {
 		method: "POST",
 		headers: {
 			"Content-Type": "application/x-www-form-urlencoded"
@@ -492,7 +493,7 @@ function postSemesters()
     });
 	*/
 
-	fetch("https://icarus.cs.weber.edu/~nb06777/CS4450/v1/getDepartments/",  {
+	fetch( apiPath + "getDepartments/",  {
 		method: "POST",
 		headers: {
 			"Content-Type": "application/x-www-form-urlencoded"
@@ -572,7 +573,7 @@ function postDepartments()
     });   
 	*/
 	
-	fetch("https://icarus.cs.weber.edu/~nb06777/CS4450/v1/getCourses/",  {
+	fetch(apiPath + "getCourses/",  {
 		method: "POST",
 		headers: {
 			"Content-Type": "application/x-www-form-urlencoded"

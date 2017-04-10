@@ -1,10 +1,11 @@
 var app = angular.module("EvalSystem", []);
+var apiPath = "https://icarus.cs.weber.edu/~nb06777/CS4450/v1/";
 
 app.controller("CollegesController", function($scope, $http) {
 	$http(
 		{
 			method: 'GET',
-			url: 'https://icarus.cs.weber.edu/~nb06777/CS4450/v1/colleges'
+			url: apiPath + 'colleges'
 		}
 	)
   /* .then(response => {
