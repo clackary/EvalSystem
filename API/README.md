@@ -14,6 +14,7 @@ You do not need to learn extra about composer, this readme will explain the part
 Composer will instantiate a PSR-4 autoloader so you don't need to "require" anything but the file that runs the autoloader (require is like C++'s #include or Java's import statement).  The packages that will be autoloaded are called “firebase/php-jwt” and “nikic/fast-route”.  Icarus  has composer installed, so that is a viable option for hosting this API, but you can use any PHP and composer enabled server to host this.  We will go through setting it up on Icarus as that is where we know it will work the way it is supposed to.
 SSH into Icarus using this information and sign in using your username and password.
  
+![SSH into Icarus with PuTTY](/API/README_Images/PuTTYsetup.png)
 
 Every CS student has a ~xx01234 directory, you will automatically be placed in your directory when you log in.  Inside this directory public_html directory, CD into it.  Make a new directory here and call it whatever you wish, we will call ours CS4450API.
  
