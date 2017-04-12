@@ -4,6 +4,9 @@ var departmentsSelected = [];
 var courseOrInstructor = "";
 var apiPath = "https://icarus.cs.weber.edu/~nb06777/CS4450/v1/";
 
+// you are logged in as this personalbar
+var loggedInUserID = 887969243; // brad peterson
+
 /* -- TermController --
   A term refers to a combination of Year + Semester in the format "2017 Spring"
   It is generic, and is not dependent on any prior selections.
@@ -172,46 +175,17 @@ app.controller("InstructorCourseController", function($scope, $http) {
 
         document.getElementById('pane4-button').click();
 
-				let departmentsSelectedJSONString = "{";
-				departmentsSelectedJSONString += "\"departments\":" + JSON.stringify(departmentsSelected);
-				departmentsSelectedJSONString += "}";
-
-				console.log(departmentsSelectedJSONString);
-				/*  JSON.stringify({});
-				for(let i=0; i<departmentsSelected.length; i++){
-					departmentsSelectedJSONString += "{" +
-						"\"DepartmentCode\" : \"" + departmentsSelected[i].DepartmentCode + "\"," +
-						"\"DepartmentName\" : \"" + departmentsSelected[i].DepartmentName + "\"" +
-					"},";
-				}
-				*/
 		if(courseOrInstructor == "Course"){
-			$http(
-				{
-					method: 'GET',
-					//url: apiPath + 'departments'
-				}
-			)
-			/*
-			 .then(response => {
-			 console.log(response.data);
-			 return response.data;
-			 }) */
-				.then(
-					function successCallback(response) {
-						$scope.depts = response.data;
-					},
-					function errorCallback(response) {
-						console.log(response);
-					}
-				);
-		}
-		else if(courseOrInstructor == "Instructor"){
+			let departmentsSelectedJSONString = "{";
+			departmentsSelectedJSONString += "\"departments\":" + JSON.stringify(departmentsSelected);
+			departmentsSelectedJSONString += ",\"userID\":" + loggedInUserID;
+			departmentsSelectedJSONString += "}";
+
+			console.log(departmentsSelectedJSONString);
 
 			$http(
 				{
-					url: 'https://icarus.cs.weber.edu/~nb06777/CS4450/v1/courseNumbers',
-					//url: apiPath + "courseNumbers",
+					url: apiPath + "instructors",
 					method: "POST",
 					data: departmentsSelectedJSONString,
 					headers: {"Content-Type": "application/x-www-form-urlencoded"}
@@ -225,7 +199,50 @@ app.controller("InstructorCourseController", function($scope, $http) {
 			.then(
 				function successCallback(response) {
 					console.log(response.data);
-					courseNumbers = response.data;
+				 	var instructors = response.data;
+
+					// get the select we're going to add all our options to
+					var select = document.getElementById("ICList");
+
+					// remove any existing options (for repeated use)
+					select.options.length = 0;
+
+					// add all our new ones
+					for(var i=0; i<instructors.length; i++){
+						// new Option (text, value)
+						select.options[select.options.length] = new Option(instructors[i].FirstName + instructors[i].LastName);
+					}
+				},
+				function errorCallback(response) {
+					console.log(response);
+				}
+			);
+		}
+		else if(courseOrInstructor == "Instructor"){
+			let departmentsSelectedJSONString = "{";
+			departmentsSelectedJSONString += "\"departments\":" + JSON.stringify(departmentsSelected);
+			departmentsSelectedJSONString += "}";
+
+			console.log(departmentsSelectedJSONString);
+
+			$http(
+				{
+					//url: 'https://icarus.cs.weber.edu/~nb06777/CS4450/v1/courseNumbers',
+					url: apiPath + "courseNumbers",
+					method: "POST",
+					data: departmentsSelectedJSONString,
+					headers: {"Content-Type": "application/x-www-form-urlencoded"}
+				}
+			)
+			/*
+			 .then(response => {
+			 console.log(response.data);
+			 return response.data;
+			 }) */
+			.then(
+				function successCallback(response) {
+					console.log(response.data);
+					var courseNumbers = response.data;
 
 					// get the select we're going to add all our options to
 					var select = document.getElementById("ICList");
