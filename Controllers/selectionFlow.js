@@ -208,11 +208,11 @@ app.controller("InstructorCourseController", function($scope, $http) {
 				*/
 			$http(
 				{
-					/*url: 'https://icarus.cs.weber.edu/~nb06777/CS4450/v1/courseNumbers',*/
-          url: apiPath + 'courseNumbers',
-					method: 'POST',
+					url: 'https://icarus.cs.weber.edu/~nb06777/CS4450/v1/courseNumbers',
+					//url: apiPath + "courseNumbers",
+					method: "POST",
 					data: departmentsSelectedJSONString,
-					headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+					headers: {"Content-Type": "application/x-www-form-urlencoded"}
 				}
 			)
 			/*
@@ -223,8 +223,19 @@ app.controller("InstructorCourseController", function($scope, $http) {
 			.then(
 				function successCallback(response) {
 					console.log(response.data);
-					$scope.courseNumbers = response.data;
-					//console.log($scope.courseNumbers);
+					courseNumbers = response.data;
+					
+					// get the select we're going to add all our options to
+					var select = document.getElementById("ICList");
+					
+					// remove any existing options (for repeated use)
+					select.options.length = 0;
+					
+					// add all our new ones
+					for(var i=0; i<courseNumbers.length; i++){
+						// new Option (text, value)
+						select.options[select.options.length] = new Option(courseNumbers[i].Subject + courseNumbers[i].CourseNumber, courseNumbers[i].Subject + courseNumbers[i].CourseNumber);
+					}
 				},
 				function errorCallback(response) {
 					console.log(response);
