@@ -159,7 +159,7 @@ app.controller("InstructorController", function($scope, $http) {
 });
 
 app.controller("InstructorCourseController", function($scope, $http) {
-	
+
 	$scope.setCourseOrInstructor = function(){
         var radioButtonList = document.getElementsByName("sortBy-Radio");
         for(let i=0; i<radioButtonList.length; i++){
@@ -171,7 +171,21 @@ app.controller("InstructorCourseController", function($scope, $http) {
         }
 
         document.getElementById('pane4-button').click();
-		if(courseOrInstructor == "Instructors"){
+
+				let departmentsSelectedJSONString = "{";
+				departmentsSelectedJSONString += "\"departments\":" + JSON.stringify(departmentsSelected);
+				departmentsSelectedJSONString += "}";
+
+				console.log(departmentsSelectedJSONString);
+				/*  JSON.stringify({});
+				for(let i=0; i<departmentsSelected.length; i++){
+					departmentsSelectedJSONString += "{" +
+						"\"DepartmentCode\" : \"" + departmentsSelected[i].DepartmentCode + "\"," +
+						"\"DepartmentName\" : \"" + departmentsSelected[i].DepartmentName + "\"" +
+					"},";
+				}
+				*/
+		if(courseOrInstructor == "Course"){
 			$http(
 				{
 					method: 'GET',
@@ -192,20 +206,8 @@ app.controller("InstructorCourseController", function($scope, $http) {
 					}
 				);
 		}
-		else if(courseOrInstructor == "Courses"){
-				let departmentsSelectedJSONString = "{";
-				departmentsSelectedJSONString += "\"departments\":" + JSON.stringify(departmentsSelected);
-				departmentsSelectedJSONString += "}";
+		else if(courseOrInstructor == "Instructor"){
 
-				console.log(departmentsSelectedJSONString);
-				/*  JSON.stringify({});
-				for(let i=0; i<departmentsSelected.length; i++){
-					departmentsSelectedJSONString += "{" +
-						"\"DepartmentCode\" : \"" + departmentsSelected[i].DepartmentCode + "\"," +
-						"\"DepartmentName\" : \"" + departmentsSelected[i].DepartmentName + "\"" +
-					"},";
-				}
-				*/
 			$http(
 				{
 					url: 'https://icarus.cs.weber.edu/~nb06777/CS4450/v1/courseNumbers',
@@ -224,13 +226,13 @@ app.controller("InstructorCourseController", function($scope, $http) {
 				function successCallback(response) {
 					console.log(response.data);
 					courseNumbers = response.data;
-					
+
 					// get the select we're going to add all our options to
 					var select = document.getElementById("ICList");
-					
+
 					// remove any existing options (for repeated use)
 					select.options.length = 0;
-					
+
 					// add all our new ones
 					for(var i=0; i<courseNumbers.length; i++){
 						// new Option (text, value)
