@@ -5,7 +5,7 @@ Before you begin setting up this API:
 -----------------------------------------------------
 Speak with Rob Hilton about getting permission to access the CS4450Spring2017 database on Titan.  At the time of writing this it should look like this:
  
-![Database Image](/README_Images/DatabaseNameAndStructure.png)
+![Database Image](/API/README_Images/DatabaseNameAndStructure.png)
 Format: ![How the database should look](url)
 
 If it still exists you won’t have to generate the database all over again (the database creation scripts are included in the project if you need to rebuild this.  It’s about 700,000 lines of code total, so reusing this will save you a lot of time)
