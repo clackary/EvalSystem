@@ -165,12 +165,13 @@ app.controller("InstructorCourseController", function($scope, $http) {
         for(let i=0; i<radioButtonList.length; i++){
             if(radioButtonList[i].checked){
                 courseOrInstructor = radioButtonList[i].value;
+                document.getElementById("pane4-title").innerHTML = courseOrInstructor;
                 break;
             }
         }
 
         document.getElementById('pane4-button').click();
-		if(courseOrInstructor == "Instructor"){
+		if(courseOrInstructor == "Instructors"){
 			$http(
 				{
 					method: 'GET',
@@ -191,7 +192,7 @@ app.controller("InstructorCourseController", function($scope, $http) {
 					}
 				);
 		}
-		else if(courseOrInstructor == "Course"){
+		else if(courseOrInstructor == "Courses"){
 				let departmentsSelectedJSONString = "{";
 				departmentsSelectedJSONString += "\"departments\":" + JSON.stringify(departmentsSelected);
 				departmentsSelectedJSONString += "}";
