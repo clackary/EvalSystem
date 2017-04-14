@@ -34,7 +34,9 @@ Every CS student has a ~xx01234 directory, you will automatically be placed in y
 Run “composer init”
 
 ![Composer step 2](/API/README_Images/composer02.png)
- 
+
+(These next steps are shown in the image below)
+
 * Give it 
   * a creator name / project name,
   * a description, 
