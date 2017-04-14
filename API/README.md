@@ -82,6 +82,7 @@ This will tell composer to rebuild dependency files to reflect the changes we ma
 Now it’s time to upload all of the API files from the project in to the correct directories.  You can zip it, upload it, and unzip it, or just move files one at a time (there’s not that many).  The structure will look like this:
 
 Create an “src” directory and start moving files over.
+
 ![Composer step 9](/API/README_Images/composer09.png)
 
  
