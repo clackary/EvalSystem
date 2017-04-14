@@ -13,9 +13,16 @@ If it still exists you won’t have to generate the database all over again (the
 
 ---
 
-The API to handle database calls is written in PHP.  It relies on a few packages that you will need to install using composer. Composer is a package manager similar to npm for JavaScript.  If you want to learn about composer on your own, visit https://getcomposer.org/
-You do not need to learn extra about composer, this readme will explain the parts you need to use composer to get the libraries that the API relies on. 
-Composer will instantiate a PSR-4 autoloader so you don't need to "require" anything but the file that runs the autoloader (require is like C++'s #include or Java's import statement).  The packages that will be autoloaded are called “firebase/php-jwt” and “nikic/fast-route”.  Icarus  has composer installed, so that is a viable option for hosting this API, but you can use any PHP and composer enabled server to host this.  We will go through setting it up on Icarus as that is where we know it will work the way it is supposed to.
+The API to handle database calls is written in PHP.  It relies on a few packages that you will need to install using composer. 
+
+Composer is a package manager similar to npm for JavaScript.  If you want to learn about composer on your own, visit https://getcomposer.org/
+
+You do not need to learn extra about Composer, this readme will explain the process, step by step, to import all of the libraries that the API relies on.
+ 
+Composer will instantiate a PSR-4 autoloader so you don't need to "require" anything but the file that runs the autoloader (require is like C++'s #include or Java's import statement).  The packages that will be autoloaded are called “firebase/php-jwt” and “nikic/fast-route”.  Icarus has Composer installed and is a viable option for hosting this API, but you can use any PHP and Composer enabled server to host this.  
+
+We will go through setting it up on Icarus as that is where we know it will work the way it is supposed to.
+
 SSH into Icarus using this information and sign in using your username and password.
  
 ![SSH into Icarus with PuTTY](/API/README_Images/PuTTYsetup.png)
