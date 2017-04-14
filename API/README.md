@@ -3,7 +3,7 @@ How to implement and use the api for your project.
 
 Before you begin setting up this API:
 
-< hr >
+---
 
 Speak with Rob Hilton about getting permission to access the CS4450Spring2017 database on Titan.  At the time of writing this it should look like this:
  
@@ -11,7 +11,7 @@ Speak with Rob Hilton about getting permission to access the CS4450Spring2017 da
 
 If it still exists you won’t have to generate the database all over again (the database creation scripts are included in the project if you need to rebuild this.  It’s about 700,000 lines of code total, so reusing this will save you a lot of time)
 
-< hr >
+---
 
 The API to handle database calls is written in PHP.  It relies on a few packages that you will need to install using composer. Composer is a package manager similar to npm for JavaScript.  If you want to learn about composer on your own, visit https://getcomposer.org/
 You do not need to learn extra about composer, this readme will explain the parts you need to use composer to get the libraries that the API relies on. 
@@ -90,7 +90,7 @@ You may not need the .DS_Store file, I don’t remember making it.  I would try 
 
 
 
-< hr >
+---
 
 If you would like to see Josh Jensen explain the composer setup process, visit https://www.youtube.com/watch?v=EukLS5fdXCQ
 Hopefully it’s still live.  It is a little on the low quality side and he takes a long time to explain.  Hopefully with these two tutorials combined you can get this working.
