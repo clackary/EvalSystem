@@ -31,7 +31,7 @@ Every CS student has a ~xx01234 directory, you will automatically be placed in y
 
 ![Composer step 1](/API/README_Images/composer01.png)
 
-Run “composer init”
+Run **“composer init”**
 
 ![Composer step 2](/API/README_Images/composer02.png)
 
@@ -56,12 +56,12 @@ Run “composer init”
  
 Once this is created we want to tell composer to download the libraries we need from the repository (I believe it will use https://packagist.org/ by default, you can search for other useful packages there)
 
-type: composer require firebase/php-jwt
+type: **composer require firebase/php-jwt** 
 (this might take a minute to install, let it run)
 
 ![Composer step 4](/API/README_Images/composer04.png)
 
-type: composer require nikic/fast-route 
+type: **composer require nikic/fast-route** 
 (again, this might take a minute to install, let it run)
 
 ![Composer step 5](/API/README_Images/composer05.png)
@@ -76,13 +76,13 @@ We need to tell it what kind of autoloader to use.  This information MUST go bef
 we will insert a new object as “autoload” and tell to use a “psr-4” autoloader, then give it a namespace, we will use CS4450 and tell it what directory to include in this namespace.  It’s a little confusing, but if you look at the example picture you will see that we are giving the namespace “CS4450” to anything in the “src” directory.
 
 
-The lines that were added were from 7 to 11, don’t forget the comma at the end of line 11.
+The lines that were added were from 7 to 11, don’t forget that you need to escape the \ by giving it another \ right bofore ( so \\ ) and  the comma at the end of line 11 is easily missed.
  
 ![Composer step 7](/API/README_Images/composer07.png)
  
 Save this file back to Icarus and go back to the command prompt.  
 
-type: composer dump-autoload
+type: **composer dump-autoload**
 
 This will tell composer to rebuild dependency files to reflect the changes we made to composer.json
 
