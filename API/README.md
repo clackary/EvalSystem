@@ -19,7 +19,7 @@ Composer is a package manager similar to npm for JavaScript.  If you want to lea
 
 You do not need to learn extra about Composer, this readme will explain the process, step by step, to import all of the libraries that the API relies on.
  
-Composer will instantiate a PSR-4 autoloader so you don't need to "require" anything but the file that runs the autoloader (require is like C++'s #include or Java's import statement).  The packages that will be autoloaded are called “firebase/php-jwt” and “nikic/fast-route”.  Icarus has Composer installed and is a viable option for hosting this API, but you can use any PHP and Composer enabled server to host this.  
+Composer will instantiate a PSR-4 autoloader so you will not need to "require" anything except for the file that runs the autoloader (require is like C++'s #include or Java's import statement).  The packages that will be autoloaded are called “firebase/php-jwt” and “nikic/fast-route”.  Icarus has Composer installed and is a viable option for hosting this API, but you can use any PHP and Composer enabled server to host this.  
 
 We will go through setting it up on Icarus as that is where we know it will work the way it is supposed to.
 
