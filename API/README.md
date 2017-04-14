@@ -20,7 +20,7 @@ SSH into Icarus using this information and sign in using your username and passw
  
 ![SSH into Icarus with PuTTY](/API/README_Images/PuTTYsetup.png)
 
-Every CS student has a ~xx01234 directory, you will automatically be placed in your directory when you log in.  Inside this directory public_html directory, CD into it.  Make a new directory here and call it whatever you wish, we will call ours CS4450API.
+Every CS student has a ~xx01234 directory, you will automatically be placed in your directory when you log in.  Inside this directory you have a "public_html" directory, CD into it.  Make a new directory here and call it whatever you wish, we will call ours CS4450API.
 
 ![Composer step 1](/API/README_Images/composer01.png)
 
