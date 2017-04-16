@@ -105,7 +105,7 @@ The next step is to modify your .htaccess file to reflect the directory you chos
 
 And the final step is to make your config.php file reflect your path and credentials to connect to the database
 
-![Modifying config.php](/API/README_Images/config.png)
+![Modifying config.php](/API/README_Images/modifyConfig.png)
 
 
 
