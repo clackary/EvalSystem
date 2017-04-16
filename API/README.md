@@ -107,9 +107,16 @@ And the final step is to make your config.php file reflect your path and credent
 
 ![Modifying config.php](/API/README_Images/modifyConfig.png)
 
+Now test it out!  I recommend downloading the Chrome extension called Postman, it's free and it's kinda wonderful for this.
+
+![Test using Postman](/API/README_Images/testUsingPostman.png)
+
+
 
 
 ---
 
 If you would like to see Josh Jensen explain the composer setup process, visit https://www.youtube.com/watch?v=EukLS5fdXCQ
 Hopefully it’s still live.  It is a little on the low quality side and he takes a long time to explain.  Hopefully with these two tutorials combined you can get this working.
+
+Josh Jensen is also the one who taught me how to build an API like this except this one has the "tokens" disabled.  Chitester has their own tokens system and I have no idea how theirs works.  Better to leave ours off so it doesn't conflict.  If you have issues getting this working I highly recommend talking to Josh, he's very nice and extremely knowledgeable.
