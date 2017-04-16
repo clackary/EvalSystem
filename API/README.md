@@ -99,6 +99,11 @@ Create an “src” directory and start moving files over.
 You may not need the .DS_Store file, I don’t remember making it.  I would try without first.
 
 
+The next step is to modify your .htaccess file to reflect the directory you chose
+
+![Modifying .htaccess](/API/README_Images/htaccess.png)
+
+
 
 ---
 
