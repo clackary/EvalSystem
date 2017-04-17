@@ -71,7 +71,11 @@ List of added stored procedures
 
 ### Note about New Evals_DistractorTextAndScore Table
 
+A Distractor is, essentially, the answer to a question on the eval.
+
 When you enter in a new Distractor into the Distractors table, the "text" column usually looks something like:
+
+```
 1 (extremely poor)
 2 (very poor)
 3 (poor)
@@ -79,6 +83,7 @@ When you enter in a new Distractor into the Distractors table, the "text" column
 5 (good)
 6 (very good)
 7 (extremely good)
+```
 
 This is a very bad practice (does not pass first normal form as these data are not atomic) and slows down 
 the math considerably.  This is because, when doing a query on this data, you will need to do string 
