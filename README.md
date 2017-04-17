@@ -18,7 +18,16 @@ Summer 2016: The project began. It was first made within .NET, but there appears
 	
 Fall 2016: The second group took over the project. The backend technology was changed from .NET to NodeJS and much of their time was spent converting the project. Luckilly, this group did leave a fair amount of documentation behind. The explainations of each piece are generally good, though there seems to be little in the way of descriptions of how the pieces fit together. Additionally, there are a couple of important notes missing, such as there being no mention of the heroku API that was being used in some of the files. There were also a number of SQL files to add tables to the database, but little to no explaination of what they were for. How much of this group's work was simply converting to the new technology and how much focused on expanding the project, I am not sure.
 		
-Spring 2017: The technology requirements again changed. Now the technology to be used is AngularJS. As such, much of the focus has been on converting existing files to the new technology.   
+Spring 2017: The technology requirements again changed. Now the front end technology to be used is AngularJS. As such, much of the focus has been on converting existing files to the new technology. An API was also created to allow for a better, more flexible approach to interacting with the data.
+
+Our current architecture and the technologies we used look like this...
+
+```
+Web Pages 	Front End	Back End		Database
+Views		Controllers	API/api.php		DatabaseCreation, and API/Controllers
+html/css	js		php			sql (in php files)
+				(See API/README.md)	
+```
 	
 ## File structure explaination
 ### Overview of current folders:
