@@ -57,7 +57,10 @@ Notes:
 
 ### Database changes
 List of added tables
-		
+		Evals_DistractorTextAndScore
+			Essentially adds two columns to the Distractors table. These columns separate the numeric value of the distractor and the text into two columns instead of just one. A more thorough explaination can be found below.
+		Evals_UserDepartmentRoles
+			This table functions as a three way association table between Users, Departments, and Roles. It is meant to be used to determine user permissions when generating reports. 
 List of added stored procedures
 		
 
