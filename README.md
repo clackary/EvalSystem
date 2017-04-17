@@ -18,7 +18,16 @@ Summer 2016: The project began. It was first made within .NET, but there appears
 	
 Fall 2016: The second group took over the project. The backend technology was changed from .NET to NodeJS and much of their time was spent converting the project. Luckilly, this group did leave a fair amount of documentation behind. The explainations of each piece are generally good, though there seems to be little in the way of descriptions of how the pieces fit together. Additionally, there are a couple of important notes missing, such as there being no mention of the heroku API that was being used in some of the files. There were also a number of SQL files to add tables to the database, but little to no explaination of what they were for. How much of this group's work was simply converting to the new technology and how much focused on expanding the project, I am not sure.
 		
-Spring 2017: The technology requirements again changed. Now the technology to be used is AngularJS. As such, much of the focus has been on converting existing files to the new technology.   
+Spring 2017: The technology requirements again changed. Now the front end technology to be used is AngularJS. As such, much of the focus has been on converting existing files to the new technology. An API was also created to allow for a better, more flexible approach to interacting with the data.
+
+The current architecture and the technologies we used look like this...
+
+```
+Web Pages 	Front End	Back End		Database
+Views		Controllers	API/api.php		DatabaseCreation, and API/Controllers
+html/css	js		php			sql (in php files)
+				(See API/README.md)	
+```
 	
 ## File structure explaination
 ### Overview of current folders:
@@ -57,100 +66,11 @@ Notes:
 
 ### Database changes
 List of added tables
-		
+		Evals_DistractorTextAndScore
+			Essentially adds two columns to the Distractors table. These columns separate the numeric value of the distractor and the text into two columns instead of just one. A more thorough explaination can be found below.
+		Evals_UserDepartmentRoles
+			This table functions as a three way association table between Users, Departments, and Roles. It is meant to be used to determine user permissions when generating reports. 
 List of added stored procedures
-		
 
-// *****************************************************************
-// * New Evals_DistractorTextAndScore Table                        *
-// *****************************************************************
-
-When you enter in a new Distractor into the Distractors table, the "text" column usually looks something like:
-1 (extremely poor)
-2 (very poor)
-3 (poor)
-4 (average)
-5 (good)
-6 (very good)
-7 (extremely good)
-
-This is a very bad practice (does not pass first normal form as these data are not atomic) and slows down 
-the math considerably.  This is because, when doing a query on this data, you will need to do string 
-manipulation to get the scores separate from the text.  
-
-The Evals_DistractorTextAndScore table was added to separate these data into two columns and speed up 
-queries. When inserting a new row into the Distractors table you will also need to insert a row into the Evals_DistractorTextAndScore table.
-
-The "distractorID" refers to "Distractors.ID".  When you join Distractors with 
-Evals_DistractorTextAndScore you will get 2 new columns.
-
-This query...
-```
-SELECT * 
-FROM Distractors 
-WHERE questionID = 961901;
-```
-
-Yields...
-```
-|ID      |questionID |sequence |formatID |correct |Distractors.text   |
------------------------------------------------------------------------
-|3626242 |961901     |1        |1        |0       |1 (extremely poor) |
-|3626243 |961901     |2        |1        |0       |2 (very poor)      |
-|3626244 |961901     |3        |1        |0       |3 (poor)           |
-|3626245 |961901     |4        |1        |0       |4 (average)        |
-|3626246 |961901     |5        |1        |0       |5 (good)           |
-|3626247 |961901     |6        |1        |0       |6 (very good)      |
-|3626248 |961901     |7        |1        |0       |7 (extremely good) |
-```
-
-Joining in the new Evals_DistractorTextAndScore table will give more useful information for analytics 
-without having to do string manipulation on potentially 10s of thousands of rows.  This process is much 
-faster now, butyou will have to insert into Evals_DistractorTextAndScore whenever you insert into Distractors.
-
-This query...
-```
-SELECT * 
-FROM Distractors d
-JOIN Evals_DistractorTextAndScore e
-ON d.ID = e.DistractorID
-WHERE questionID = 961901;
-```
-
-Yields...
-```
-|ID      |questionID |sequence |formatID |correct |Distractors.text   |score |e.text         |
-----------------------------------------------------------------------------------------------
-|3626242 |961901     |1        |1        |0       |1 (extremely poor) |1     |extremely poor |
-|3626243 |961901     |2        |1        |0       |2 (very poor)      |2     |very poor      |
-|3626244 |961901     |3        |1        |0       |3 (poor)           |3     |poor           |
-|3626245 |961901     |4        |1        |0       |4 (average)        |4     |average        |
-|3626246 |961901     |5        |1        |0       |5 (good)           |5     |good           |
-|3626247 |961901     |6        |1        |0       |6 (very good)      |6     |very good      |
-|3626248 |961901     |7        |1        |0       |7 (extremely good) |7     |extremely good |
-```
-
-We would recommend completely abandoning the "Distractors.text" column, maybe just leave it null 
-from now on.  ntext is depricated and is EXTREMELY slow.
-
-Example INSERT...
-```
-INSERT INTO 
-Distractors (questionID, sequence, formatID, correct, text                )
-VALUES      (961901    , 1       , 1       , 0      , '1 (extremely poor)');
-
-INSERT INTO 
-Evals_DistractorTextAndScore (distractorID, score, text            )
-VALUES                       (@@Identity,   1,     'extremely poor');
-```
-
-Or even ignoring the ntext value because it was bad practice and now redundant...
-```
-INSERT INTO 
-Distractors (questionID, sequence, formatID, correct)
-VALUES      (961901    , 1       , 1       , 0      );
-
-INSERT INTO 
-Evals_DistractorTextAndScore (distractorID, score, text            )
-VALUES                       (@@Identity,   1,     'extremely poor');
-```
+## Next Steps
+Add next steps

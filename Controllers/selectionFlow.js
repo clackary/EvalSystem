@@ -2,6 +2,7 @@ var app = angular.module("EvalSystem", []);
 var termsSelected = []; // holds the terms that the user has selected
 var departmentsSelected = []; //holds the departments that the user has selected
 var courseOrInstructor = ""; //holds the string of "Course" or "Instructor" based on which option the user chooses to sort the returned info by
+var reportDisplayOption = "";
 
 // NOTE: This will need to be changed each semester to the path that the current group has set up for their API calls
 var apiPath = "https://icarus.cs.weber.edu/~nb06777/CS4450/v1/"; //This is the path to the API calls that interface with the database.
@@ -40,6 +41,7 @@ app.controller("TermController", function($scope, $http) {
 
         // strip out the information we need to get objects in the form of
         // {year: 2017, semester: 2}
+        termsSelected.length = 0;
         for(var i=0; i<terms.length; i++){
             if(terms[i].selected){
                 termsSelected.push({
@@ -81,6 +83,7 @@ app.controller("DeptController", function($scope, $http) {
 
         // strip out the information we need to get objects in the form of
         // {code: 8001, name: Computer Science}
+        departmentsSelected.length = 0;
         for(var i=0; i<departments.length; i++){
             if(departments[i].selected){
                 departmentsSelected.push({
@@ -144,7 +147,7 @@ app.controller("InstructorCourseController", function($scope, $http) {
 					// add all our new ones
 					for(var i=0; i<instructors.length; i++){
 						// new Option (text, value)
-						select.options[select.options.length] = new Option(instructors[i].FirstName + instructors[i].LastName);
+						select.options[select.options.length] = new Option(instructors[i].FirstName + " " + instructors[i].LastName);
 					}
 				},
 				function errorCallback(response) {
@@ -199,4 +202,22 @@ app.controller("InstructorCourseController", function($scope, $http) {
     }
 });
 
-//TODO: need another controller to handle the last pane; Choosing how to display the return data based on the radio options
+//This controller retrieves the selected display option. The program should have all of the needed information at this point to generate the report
+//TODO: Make sure the user has entered in data for all fields. If not, direct them to the needed field.
+//TODO: Use this controller to generate the report and display it in a way that can be printed off from the users printer, if they want to print it.
+app.controller("ReportDisplayOptionsController", function($scope) {
+
+    $scope.editFunction = function() {
+        console.log("Edit clicked.");
+    };
+    $scope.buildReport = function(){
+        var reportSelectionList = document.getElementsByName("reportSelection-Radio");
+        for(let i=0; i<reportSelectionList.length; i++){
+            if(reportSelectionList[i].checked){
+                reportDisplayOption = reportSelectionList[i].value;
+                break;
+            }
+        }
+        console.log(reportDisplayOption);
+    }
+});
