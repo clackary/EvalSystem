@@ -20,7 +20,7 @@ Fall 2016: The second group took over the project. The backend technology was ch
 		
 Spring 2017: The technology requirements again changed. Now the front end technology to be used is AngularJS. As such, much of the focus has been on converting existing files to the new technology. An API was also created to allow for a better, more flexible approach to interacting with the data.
 
-Our current architecture and the technologies we used look like this...
+The current architecture and the technologies we used look like this...
 
 ```
 Web Pages 	Front End	Back End		Database
