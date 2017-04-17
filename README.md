@@ -59,11 +59,8 @@ Notes:
 List of added tables
 		
 List of added stored procedures
-		
 
-// *****************************************************************
-// * New Evals_DistractorTextAndScore Table                        *
-// *****************************************************************
+### Note about New Evals_DistractorTextAndScore Table
 
 When you enter in a new Distractor into the Distractors table, the "text" column usually looks something like:
 1 (extremely poor)
