@@ -20,7 +20,7 @@ Fall 2016: The second group took over the project. The backend technology was ch
 		
 Spring 2017: The technology requirements again changed. Now the front end technology to be used is AngularJS. As such, much of the focus has been on converting existing files to the new technology. An API was also created to allow for a better, more flexible approach to interacting with the data.
 
-Our current architecture and the technologies we used look like this...
+The current architecture and the technologies we used look like this...
 
 ```
 Web Pages 	Front End	Back End		Database
@@ -66,7 +66,10 @@ Notes:
 
 ### Database changes
 List of added tables
-		
+		Evals_DistractorTextAndScore
+			Essentially adds two columns to the Distractors table. These columns separate the numeric value of the distractor and the text into two columns instead of just one. A more thorough explaination can be found below.
+		Evals_UserDepartmentRoles
+			This table functions as a three way association table between Users, Departments, and Roles. It is meant to be used to determine user permissions when generating reports. 
 List of added stored procedures
 
 ## Next Steps
