@@ -144,7 +144,7 @@ app.controller("InstructorCourseController", function($scope, $http) {
 					// add all our new ones
 					for(var i=0; i<instructors.length; i++){
 						// new Option (text, value)
-						select.options[select.options.length] = new Option(instructors[i].FirstName + instructors[i].LastName);
+						select.options[select.options.length] = new Option(instructors[i].FirstName + " " + instructors[i].LastName);
 					}
 				},
 				function errorCallback(response) {
