@@ -1,5 +1,5 @@
 ## README
-Views contains the html files for each page. Note that each file will have a corresponding .css file (in the CSS folder) and .js file (in the Controllers folder). 
+Views contains the html files for each page. Note that each file will have a corresponding .css file (in the CSS folder) and .js file (in the Controllers folder).
 
 ### Description of each view
 
@@ -12,7 +12,3 @@ This page was designed to allow the user to select the parameters of any report 
 5. User selects which report to view or generate
 
 Currently, steps 1 - 4 should be working with the API to return "live" data from the database. Note that there is very little test data in the Evals_UserDepartmentRoles table, (just a few instructors from the Computer Science department). So when selecting the Course radio button, also make sure to have selected at least the Computer Science department to see anything in the next frame. Otherwise, the instructor list will be blank.
-
-#### userRoles.html
-This is a basic start to the User Roles/Permissions page. Currently, this page displays any User from the database that belongs to a department. This was done to exclude users who did not belong to a department, and eliminates some empty cells in the table.
-	

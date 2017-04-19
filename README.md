@@ -73,4 +73,15 @@ List of added tables
 List of added stored procedures
 
 ## Next Steps
-Add next steps
+
+### Generating a report
+
+### Secretary Page
+Make it a "Checkbox system"
+
+Add permissions functionality
+
+Add departments
+
+### Deployment
+Reach out to Brad and Chitester for this one. Good luck.
