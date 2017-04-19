@@ -78,7 +78,9 @@ List of added stored procedures
 
 ### Secretary Page
 Make it a "Checkbox system"
+
 Add permissions functionality
+
 Add departments
 
 ### Deployment
