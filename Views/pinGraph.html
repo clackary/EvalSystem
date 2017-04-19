@@ -1,0 +1,57 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <title>Test Graph</title>
+  <link rel="stylesheet" type="text/css" href="../CSS/pinGraph.css" />
+  <script type="text/javascript" src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+  <script type="text/javascript" src="https://code.jquery.com/jquery-latest.min.js"></script>
+  <script type="text/javascript" src="https://code.jquery.com/ui/1.10.3/jquery-ui.js"></script> 
+  
+  <script type="text/javascript" src="../Controllers/pinGraph.js"></script>
+    <script src="../Includes/slides.min.jquery.js"></script>
+  
+</head>
+
+<body onload="startGraph();" >
+
+    <div id="page">
+        <h2 style='margin:auto;text-align:center;'>Computer Science CS 1400 to CS 2400</h2>
+
+        
+
+        <table class='tablegraph' id='tableid' align='center'>
+            <tr></tr>
+            <tr id='mainrow' align='center'></tr>
+            <tr></tr>
+
+        </table>
+        <table align='center'>
+            <tr>
+                <td colspan='9'><input type='image' src='../Images/Arrows-Back-icon.png' width='20px' height='20px' onmousedown=leftClick() onmouseup=endLeftClick() ondragend=endLeftClick() id='leftclick' /></td>
+                <td><input type='image' src='../Images/Very-Basic-Plus-icon.png' width='20px' height='20px' onmousedown=zoomIn() onmouseup=endZoomIn() ondragend=endZoomIn() id='zoomin' /></td>
+                <td><input type='image' src='../Images/Very-Basic-Minus-icon.png' width='20px' height='20px' onmousedown=zoomOut() onmouseup=endZoomOut() ondragend=endZoomOut() id='zoomout' /></td>
+                <td><input type='image' src='../Images/Arrows-Back-greater-than.png' width='20px' height='20px' onmousedown=rightClick() onmouseup=endRightClick() ondragend=endRightClick() id='rightclick' /></td>
+
+            </tr>
+        </table>
+
+        <table align='center'>
+            <tr>
+                <td colspan='9' width='900px'>Legend:</td>
+                 <tr><td style='vertical-align:top'><img src='../Images/LegendSquare-Red.png' />Sections you teach.</td></tr>
+                <tr><td class='legendrow' style='vertical-align:top'><img src='../Images/LegendSquare-Green.png' />Other sections you can view.</td></tr>
+                <tr><td style='vertical-align:top'><img src='../Images/LegendSquare-Blue.png' />Sections you cannot view.</td></tr>
+            </tr>
+            
+        </table>
+
+        <table id="tabularScores" style="margin-top:15px; margin-left:auto;margin-right:auto ">
+
+        </table>
+    </div>
+
+
+
+</body>
+</html>
