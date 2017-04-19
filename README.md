@@ -81,5 +81,5 @@ Make it a "Checkbox system"
 Add permissions functionality
 Add departments
 
-
-
+### Deployment
+Reach out to Brad and Chitester for this one. Good luck.
