@@ -1,5 +1,5 @@
-### Testing / Wireframes
-This folder contains a few pages that are a work-in-progress.
+### Testing / Work in Progress
+This folder contains a few pages that are a work-in-progress, with different storyboards or ideas that may or may not be currently abandoned.
 
 #### userRoles.html
 This is a basic start to the User Roles/Permissions (sometimes we refer to this as the secretary page). Currently, this page displays any User from the database that belongs to a department. This was done to exclude users who did not belong to a department, and eliminates some empty cells in the table.
