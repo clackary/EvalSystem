@@ -259,8 +259,10 @@ function buildReport() {
 							courseListString += courses[i].value + ",";
 					}
 			}
+			
+			// seems to have issues in Edge, but we ran out of time
 			window.sessionStorage.coursesSelected = courseListString;
-			//console.log(window.sessionStorage.coursesSelected);
+			
 			window.location="pinGraph.html";
 			break;
 		default:

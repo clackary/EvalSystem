@@ -1,13 +1,58 @@
 
+// this should be populated from the selectionFlow.
+// if this data was not submitted from the selectionFlow
+// we will redirect back so you can do it properly
+if(window.sessionStorage.coursesSelected){
+	var coursesToDisplay = window.sessionStorage.coursesSelected;
+}
+else{
+	var coursesToDisplay = null;
+	window.location = "selectionFlow.html";
+}
 
+console.log("You selected these courses: " + coursesToDisplay + "\n\n");
 
+console.log(`
+	This page is not finished, you need to make the pingraph
+	show the correct data from the specific courses selected
 
+	the API endpoint like:
+
+	https://icarus.cs.weber.edu/~nb06777/CS4450/v1/getPingraphData
+
+	with a body like
+
+		{
+			"courses" : ["CS2420","CS1400"],
+			"userID": 887969243
+		}
+		
+	will return all of the pingraph data for Brad Peterson to see
+	regarding these CS1400 and CS2420
+
+	in this format:
+
+	[
+		{"TestId":"69210","teacher":"Bradley Peterson","course":"CS2420","catalogYear":"2014","calendarYear":"2014","semester":"Fall","semesterNumber":"3","Score":"3.184523","permission":"2","bannerCRN":"32940","LikertMin":"0","LikertMax":"4"},
+		{"TestId":"69210","teacher":"Bradley Peterson","course":"CS2420","catalogYear":"2014","calendarYear":"2015","semester":"Spring","semesterNumber":"1","Score":"3.198391","permission":"2","bannerCRN":"11232","LikertMin":"0","LikertMax":"4"},
+		{"TestId":"69210","teacher":"Bradley Peterson","course":"CS2420","catalogYear":"2013","calendarYear":"2014","semester":"Summer","semesterNumber":"2","Score":"3.264705","permission":"2","bannerCRN":"23750","LikertMin":"0","LikertMax":"4"},
+		...
+		trimmed for space
+		...
+		{"TestId":"69210","teacher":"Bradley Peterson","course":"CS2420","catalogYear":"2013","calendarYear":"2014","semester":"Summer","semesterNumber":"2","Score":"3.714285","permission":"2","bannerCRN":"20949","LikertMin":"0","LikertMax":"4"},
+		{"TestId":"69210","teacher":"Bradley Peterson","course":"CS2420","catalogYear":"2014","calendarYear":"2015","semester":"Summer","semesterNumber":"2","Score":"3.830449","permission":"2","bannerCRN":"21584","LikertMin":"0","LikertMax":"4"}
+	]
+	
+	
+	
+	At the moment it generates a bunch of random data in a for loop.  
+	The attempted AJAX call is commented out.
+`);
 
 // this is hard coded for now but should be changed to
 // however chitester handles who is logged in currently
 var loggedInUser = 887969243; // this is brad peterson
-// more hard coded data to be replaced later
-var coursesToDisplay = "CS1400,CS2420";
+
 
 var leftBound =  0.00;
 var rightBound = 4.00;
@@ -53,78 +98,84 @@ function getColorZIndex(color)
 
 function startGraph()
 {
-	//$.ajax(
-	//{
-	//    //url: '/misc/weber/CSEvals/ranking.cfm',
-	//    url: 'Ranking.cshtml?instructorID=887999808&semester=2&year=2014',
-	//	type: "GET",
-	//	dataType: "json",
-	//	success:function(data)
-	//	{
-	//		var dataArray;
-	//		var tableObject;
+	if(coursesToDisplay){
+		//$.ajax(
+		//{
+		//    //url: '/misc/weber/CSEvals/ranking.cfm',
+		//    url: 'Ranking.cshtml?instructorID=887999808&semester=2&year=2014',
+		//	type: "GET",
+		//	dataType: "json",
+		//	success:function(data)
+		//	{
+		//		var dataArray;
+		//		var tableObject;
 
-	//		$.each(data.DATA, function(i, array)
-	//		{
-	//			dataArray = toKeyValPair(data.COLUMNS, array);	//CONVERTS DATA TO A KEY VALUE PAIR FOR READABILITY
-	//			tableObject = {marker:dataArray["MARKER"], course:dataArray["COURSE"], instructor:dataArray["INAME"], score:dataArray["INSTRUCTORAVERAGE"], semester:dataArray["SEMESTER"],year:dataArray["YEAR"]};
-	//			graphObjectArray.push(tableObject);
-	//		});
+		//		$.each(data.DATA, function(i, array)
+		//		{
+		//			dataArray = toKeyValPair(data.COLUMNS, array);	//CONVERTS DATA TO A KEY VALUE PAIR FOR READABILITY
+		//			tableObject = {marker:dataArray["MARKER"], course:dataArray["COURSE"], instructor:dataArray["INAME"], score:dataArray["INSTRUCTORAVERAGE"], semester:dataArray["SEMESTER"],year:dataArray["YEAR"]};
+		//			graphObjectArray.push(tableObject);
+		//		});
 
-	//		graphObjectArray.sort(function (a, b) {
-	//		    return a.score - b.score;
-	//		})
+		//		graphObjectArray.sort(function (a, b) {
+		//		    return a.score - b.score;
+		//		})
 
-	//		barGraph();
+		//		barGraph();
 
-	//		tableData = graphObjectArray;
+		//		tableData = graphObjectArray;
 
-	//		graphObjectArray.sort(function (a, b) {
-	//		    return b.score - a.score;
-	//		});
-	//		generateScoreTable(graphObjectArray);
-	//	}
-	//});
+		//		graphObjectArray.sort(function (a, b) {
+		//		    return b.score - a.score;
+		//		});
+		//		generateScoreTable(graphObjectArray);
+		//	}
+		//});
 
-	//var graphObjectArray = new Array();//[graphObject, graphObject2, graphObject3, graphObject4, graphObject5, graphObject6, graphObject7, graphObject8, graphObject9];
+		//var graphObjectArray = new Array();//[graphObject, graphObject2, graphObject3, graphObject4, graphObject5, graphObject6, graphObject7, graphObject8, graphObject9];
+		
+		//generate random markers to use as mock data. 
+		 for (var i = 0; i < 200; i++)
+		 {
+			 var tempScore = (Math.random() * 4);
+			 var tempMarker;
+			
+			 var tempColor = (Math.random() * 50).toFixed(0);
+
+			 var semester = Math.floor((Math.random() * 3)) + 1;
+			 var year = Math.floor((Math.random() * 5)) + 2013;
+			
+			 if (tempColor == 0)
+			 {
+				 tempMarker = "red";
+			 }
+			 else if (tempColor == 1)
+			 {
+				 tempMarker = "green";
+			 }
+			 else if (tempColor >= 2)
+			 {
+				 tempMarker = "blue";
+			 }
+			
+
+			 //assign info to an object with mock data
+			 var tempObject = {marker:tempMarker, course:"CS 1400", instructor:"Brad Peterson", score:tempScore, year:year, semester: semester};
+			 graphObjectArray.push(tempObject);
+		 }
+		
+		graphObjectArray.sort(function (a, b) {
+			return a.score - b.score
+		})
+		tableData = graphObjectArray;
+		barGraph();
+
+		generateScoreTable(tableData);
+	}
 	
-	//generate random markers to use as mock data. 
-	 for (var i = 0; i < 200; i++)
-	 {
-		 var tempScore = (Math.random() * 4);
-		 var tempMarker;
-		
-		 var tempColor = (Math.random() * 50).toFixed(0);
-
-		 var semester = Math.floor((Math.random() * 3)) + 1;
-		 var year = Math.floor((Math.random() * 5)) + 2013;
-		
-		 if (tempColor == 0)
-		 {
-			 tempMarker = "red";
-		 }
-		 else if (tempColor == 1)
-		 {
-			 tempMarker = "green";
-		 }
-		 else if (tempColor >= 2)
-		 {
-			 tempMarker = "blue";
-		 }
-		
-
-		 //assign info to an object with mock data
-		 var tempObject = {marker:tempMarker, course:"CS 1400", instructor:"Brad Peterson", score:tempScore, year:year, semester: semester};
-		 graphObjectArray.push(tempObject);
-	 }
-	
-	graphObjectArray.sort(function (a, b) {
-	    return a.score - b.score
-	})
-	tableData = graphObjectArray;
-	barGraph();
-
-	generateScoreTable(tableData);
+	else{
+		console.log("You did not come to this page via the selectionFlow.html page.  Please go back and do this properly.");
+	}
 	
 
 }

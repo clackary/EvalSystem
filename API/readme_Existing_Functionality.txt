@@ -211,6 +211,57 @@ Brad Peterson an "Instructor" for the CS Department
 //***********************************************************************************************************
 //***********************************************************************************************************
 
+InstructorDepartmentsController
+
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+GET ~ https://icarus.cs.weber.edu/~nb06777/CS4450/v1/instructorDepartments
+
+Gets you all instructors and what departments they work for, like how "Thomas Herret" works for "Geosciences"
+
+EXAMPLE RETURN DATA
+[
+	{"DepartmentCode":"6002","InstructorDepartmentsID":"1043","InstructorID":"550000028","CollegeCode":"6","DepartmentName":"Geosciences","InstructorFirstName":"Thomas","InstructorLastName":"Herret"},
+	{"DepartmentCode":"4003","InstructorDepartmentsID":"785","InstructorID":"550000052","CollegeCode":"4","DepartmentName":"Info Systems and Technologies","InstructorFirstName":"G","InstructorLastName":"Harris"},
+	{"DepartmentCode":"3000","InstructorDepartmentsID":"14","InstructorID":"550000054","CollegeCode":"3","DepartmentName":"Communication","InstructorFirstName":"Mukhbir","InstructorLastName":"Singh"},
+	{"DepartmentCode":"7001","InstructorDepartmentsID":"738","InstructorID":"550000056","CollegeCode":"7","DepartmentName":"History","InstructorFirstName":"Vikki","InstructorLastName":"Deakin"},
+	{"DepartmentCode":"5002","InstructorDepartmentsID":"15","InstructorID":"550000058","CollegeCode":"5","DepartmentName":"Teacher Education","InstructorFirstName":"Natalie","InstructorLastName":"Williams"},
+
+	...
+
+]
+
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+GET ~ https://icarus.cs.weber.edu/~nb06777/CS4450/v1/instructorDepartments/instructor/{instructorID:\d+}
+GET ~ https://icarus.cs.weber.edu/~nb06777/CS4450/v1/instructorDepartments/instructor/550000018
+
+Gets all departments an instructor works for (usually just 1 department)
+
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+GET ~ https://icarus.cs.weber.edu/~nb06777/CS4450/v1/instructorDepartments/department/{departmentCode:\d+}
+GET ~ https://icarus.cs.weber.edu/~nb06777/CS4450/v1/instructorDepartments/department/8001
+
+Returns all instructors that work for a given department code
+
+EXAMPLE RETURN DATA ~ for department 8001 ( which is computer science )
+
+[
+	{"DepartmentCode":"8001","InstructorDepartmentsID":"93","InstructorID":"880519503","CollegeCode":"8","DepartmentName":"Computer Science","InstructorFirstName":"Student32393","InstructorLastName":"Student32393"},
+	{"DepartmentCode":"8001","InstructorDepartmentsID":"118","InstructorID":"880890158","CollegeCode":"8","DepartmentName":"Computer Science","InstructorFirstName":"Scott","InstructorLastName":"Grayston"},
+	{"DepartmentCode":"8001","InstructorDepartmentsID":"120","InstructorID":"880973823","CollegeCode":"8","DepartmentName":"Computer Science","InstructorFirstName":"Spencer","InstructorLastName":"Hilton"},
+	{"DepartmentCode":"8001","InstructorDepartmentsID":"121","InstructorID":"881006394","CollegeCode":"8","DepartmentName":"Computer Science","InstructorFirstName":"Ronald","InstructorLastName":"Peterson"},
+	{"DepartmentCode":"8001","InstructorDepartmentsID":"146","InstructorID":"881564668","CollegeCode":"8","DepartmentName":"Computer Science","InstructorFirstName":"Robert","InstructorLastName":"Hilton"},
+	{"DepartmentCode":"8001","InstructorDepartmentsID":"156","InstructorID":"881750444","CollegeCode":"8","DepartmentName":"Computer Science","InstructorFirstName":"Gregory","InstructorLastName":"Anderson"},
+	. . .
+	all instructors for CS
+	. . .
+	{"DepartmentCode":"8001","InstructorDepartmentsID":"1940","InstructorID":"886227766","CollegeCode":"8","DepartmentName":"Computer Science","InstructorFirstName":"Matthew","InstructorLastName":"Horton"},
+	{"DepartmentCode":"8001","InstructorDepartmentsID":"1951","InstructorID":"883758933","CollegeCode":"8","DepartmentName":"Computer Science","InstructorFirstName":"Jason","InstructorLastName":"Brown"},
+	{"DepartmentCode":"8001","InstructorDepartmentsID":"2178","InstructorID":"550060567","CollegeCode":"8","DepartmentName":"Computer Science","InstructorFirstName":"Nathan","InstructorLastName":"Thornton"}
+]
+
 //***********************************************************************************************************
 //***********************************************************************************************************
 
