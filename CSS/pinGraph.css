@@ -1,0 +1,72 @@
+
+.pinHead
+{
+
+	position: absolute;
+	z-index: 15;
+	left: 350px;
+	top: 30px;
+
+}
+.numcontainer{
+	/*position:absolute;*/
+	left:35px;
+}
+.pinHead2{
+	position: absolute;
+	z-index: 10;
+	left: 0px;
+	top: 35px;
+}
+.tablegraph{
+	table-layout:fixed;
+	border: 2px solid #000000;
+	background-color:#d9d9d9;
+	height:250px;
+	text-align:center;
+	padding-left:30px;
+	padding-right:40px;
+}
+.container{
+	
+	border: 2px solid #000000;
+	background-color:#d9d9d9;
+	margin-top: 70px;
+	text-align:center;
+	vertical-align:middle;
+	padding-bottom:5px;
+	position:absolute;
+	height:250px;
+	
+}
+.graph{
+	vertical-align: middle;
+position: absolute;
+top: 125px;
+left: 35px;
+}
+.number{
+	float:left;
+	width:100px;
+	text-align:left;
+}
+
+.legendrow{
+	
+	border-collapse: collapse;
+}
+
+#tabularScores{
+    border: 1px black;
+    border-style: solid;
+    width: 500px;
+}
+
+#tabularScores tr{
+    text-align:center;
+}
+    #tabularScores .sortableHeader {
+        cursor:pointer;
+        color:blue;
+        text-decoration:underline;
+    }
