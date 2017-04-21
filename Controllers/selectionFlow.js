@@ -1,6 +1,7 @@
 var app = angular.module("EvalSystem", []);
 var termsSelected = []; // holds the terms that the user has selected
 var departmentsSelected = []; //holds the departments that the user has selected
+var coursesSelected = [];
 var courseOrInstructor = ""; //holds the string of "Course" or "Instructor" based on which option the user chooses to sort the returned info by
 var reportDisplayOption = "";
 
@@ -221,3 +222,52 @@ app.controller("ReportDisplayOptionsController", function($scope) {
         console.log(reportDisplayOption);
     }
 });
+
+function buildReport() {
+	var choices = document.getElementsByName("reportSelection-Radio");
+	var checkedChoice = "";
+
+	for (var i = 0; i < choices.length; i++) {
+		if (choices[i].checked) {
+			checkedChoice = choices[i].value;
+		}
+	}
+
+	switch (checkedChoice) {
+		case "term":
+		  console.log("You chose Sort per Term.")
+			break;
+		case "dept":
+			console.log("You chose Sort per Department.")
+			break;
+		case "instr/course":
+			console.log("You chose Per Course/Instructor.")
+			break;
+		case "allReports":
+			console.log("You chose All as Eval Reports.")
+			break;
+		case "oneReport":
+			console.log("You chose All in One Report.")
+			var courseListString = "";
+			var courses = document.getElementById("ICList").options;
+
+			// strip out the information we need to get objects in the form of
+			// {code: 8001, name: Computer Science}
+
+			for(var i=0; i<courses.length; i++){
+					if(courses[i].selected){
+							courseListString += courses[i].value + ",";
+					}
+			}
+			window.sessionStorage.coursesSelected = courseListString;
+			//console.log(window.sessionStorage.coursesSelected);
+			window.location="pinGraph.html";
+			break;
+		default:
+			break;
+	}
+
+	console.log(checkedChoice);
+
+	return false;
+}
