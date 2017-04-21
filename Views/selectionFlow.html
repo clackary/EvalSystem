@@ -99,7 +99,8 @@
 			</div>
 			<div class="accordion-content" ng-controller="ReportDisplayOptionsController">
 				<h4 style="display:flex; justify-content:center; margin:auto">Report Options:</h4>
-				<div style="; width:300px; margin:auto">
+        <form id="reportOptionForm" action="" method="POST" onsubmit="return buildReport()">
+  				<div style="; width:300px; margin:auto">
 					<input name="reportSelection-Radio" type="radio" value="term">Sort per Term<br>
 					<input name="reportSelection-Radio" type="radio" value="dept">Sort per Department<br>
 					<input name="reportSelection-Radio" type="radio" value="instr/course">Sort per Instructor/Course<br>
@@ -107,8 +108,9 @@
 					<input name="reportSelection-Radio" type="radio" value="oneReport">Display all as one report<br>
 				</div>
 				<span style="display:flex; justify-content:center; margin-top:10px">
-					<button id="submit" name="select" ng-click="buildReport()">Next</button>
+          <input type="submit" value="Build Report"/>
 				</span>
+      </form>
 			</div>
 			<div class="accordion-separator"></div>
 		</li>
