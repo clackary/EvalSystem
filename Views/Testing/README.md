@@ -13,3 +13,6 @@ Includes the following files:
   -PermissionResults.html
   -SecretaryPermission.css
 These make up a functional wireframe for the Secretary Permission. This is a feature where the department secretary is able to assign permissions to the instructors. The first page, SecretaryPermission.html would have a list of the instructors in a given department. After one is selected and the 'Next' button is clicked, it goes to the second page, SelectPermissions.html. On this page, the permission(s) an instructor will have are selected. If the 'Next' button is clicked, the permissions would be saved to a database and a results page will is displayed. If the 'Back' button is clicked, the user is returned to the SecretaryPermission.html page. The results page displays the instructor and permission(s) assigned to them.
+
+#### pingraphgui.html
+This page was the precursor to our current Selection Flow page (Views/selectionFlow.html).
