@@ -18,7 +18,9 @@ $dispatcher = FastRoute\simpleDispatcher(function(FastRoute\RouteCollector $r) u
         $pos = strpos($uri, '?');
         if ($pos !== false) {
             $uri = substr($uri, $pos+1);
-            $args['BY'] = $uri;
+            $args['uri'] = $uri;
+			
+			// now the next function will have the query string after the ? to parse through
         }
         return (new Eportfolio\Controllers\ClassController)->getClass($args);
 	*/
@@ -38,13 +40,6 @@ $dispatcher = FastRoute\simpleDispatcher(function(FastRoute\RouteCollector $r) u
 	*/
 
 
-
-	
-	
-	
-	
-	
-	
 	
 	
 	$handleGetAllColleges = function(){
@@ -105,8 +100,6 @@ $dispatcher = FastRoute\simpleDispatcher(function(FastRoute\RouteCollector $r) u
 	};
 	$r->addRoute('GET',     $baseURI . '/instructorDepartments/instructor/{instructorID:\d+}',   $handleGetInstructorDepartmentsByInstructorID);
 	
-	//**********************************************************************************
-	
 	$handleGetInstructorDepartmentsByIDepartmentCode = function($args){
 		return (new CS4450\Controllers\InstructorDepartmentsController)->getInstructorDepartmentsByDepartmentCode($args);
 	};
@@ -117,7 +110,17 @@ $dispatcher = FastRoute\simpleDispatcher(function(FastRoute\RouteCollector $r) u
 	$handlePostEvals_UserDepartmentRoles = function(){
         return (new CS4450\Controllers\Evals_UserDepartmentRolesController)->insertIntoEvals_UserDepartmentRoles();
     };
+	
+	$handlGetAllEvals_UserDepartmentRoles = function(){
+		return (new CS4450\Controllers\Evals_UserDepartmentRolesController)->getAllUserDepartmentRoles();
+	};
+	
 	$r->addRoute('POST',    $baseURI . '/Evals_UserDepartmentRoles/',           $handlePostEvals_UserDepartmentRoles);
+	$r->addRoute('POST',    $baseURI . '/Evals_UserDepartmentRoles',           $handlePostEvals_UserDepartmentRoles);
+	
+	$r->addRoute('GET',    $baseURI . '/Evals_UserDepartmentRoles/',           $handlGetAllEvals_UserDepartmentRoles);
+	$r->addRoute('GET',    $baseURI . '/Evals_UserDepartmentRoles',           $handlGetAllEvals_UserDepartmentRoles);
+	
 
 	//**********************************************************************************
 	
@@ -156,12 +159,6 @@ $dispatcher = FastRoute\simpleDispatcher(function(FastRoute\RouteCollector $r) u
 	$r->addRoute('POST',     $baseURI . '/getCourses',   $handleGetCourses);
 	$r->addRoute('POST',     $baseURI . '/getCourses/',   $handleGetCourses);
 	
-	$handleGetPingraphData = function(){
-		return (new CS4450\Controllers\OldAPIController)->getPingraphData();
-	};
-	$r->addRoute('POST',     $baseURI . '/getPingraphData',   $handleGetPingraphData);
-	$r->addRoute('POST',     $baseURI . '/getPingraphData/',   $handleGetPingraphData);
-	
 	//*********************************************************************************
 	
 	$handleGetYearSemesters = function(){
@@ -189,7 +186,7 @@ $dispatcher = FastRoute\simpleDispatcher(function(FastRoute\RouteCollector $r) u
 	//*********************************************************************************
 	
 	$handleBoxAndWhiskerData = function(){
-		return (new CS4450\Controllers\PingraphDataController)->getPingraphData();
+		return (new CS4450\Controllers\BoxAndWhiskerController)->getBoxAndWhiskerData();
 	};
 	$r->addRoute('POST',     $baseURI . '/boxAndWhiskerData',   $handleBoxAndWhiskerData);
 	$r->addRoute('POST',     $baseURI . '/boxAndWhiskerData/',   $handleBoxAndWhiskerData);
@@ -200,6 +197,13 @@ $dispatcher = FastRoute\simpleDispatcher(function(FastRoute\RouteCollector $r) u
 	};
 	$r->addRoute('POST',     $baseURI . '/instructors',   $handleGettingAllInstructorsBasedOnDepartments);
 	$r->addRoute('POST',     $baseURI . '/instructors/',   $handleGettingAllInstructorsBasedOnDepartments);
+	
+	//*********************************************************************************
+	$handleGetSemestersFromYears = function(){
+		return (new CS4450\Controllers\YearSemestersController)->getAllYearsAndSemesters();
+	};
+	$r->addRoute('POST',     $baseURI . '/yearSemesters',   $handleGetSemestersFromYears);
+	$r->addRoute('POST',     $baseURI . '/yearSemesters/',   $handleGetSemestersFromYears);
 
 });
 

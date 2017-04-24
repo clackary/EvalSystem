@@ -181,7 +181,7 @@ GET ~ https://icarus.cs.weber.edu/~nb06777/CS4450/v1/Evals_UserDepartmentRoles
 
 returns all UserDepartmentRole associations.  For example, Brad Peterson is an "Adjunct Admin" for the CS Department.
 
-EXAMPLE
+EXAMPLE RETURN DATA
 [
 	{"DepartmentCode":"6003","Subject":"MATH","FirstName":"Nathan","LastName":"Brooks","UserID":"990224681","RoleID":"12","RoleName":"Adjunct"},
 	{"DepartmentCode":"7001","Subject":"HIST","FirstName":"Nathan","LastName":"Brooks","UserID":"990224681","RoleID":"3","RoleName":"Instructor"},
@@ -211,7 +211,7 @@ Brad Peterson an "Instructor" for the CS Department
 //***********************************************************************************************************
 //***********************************************************************************************************
 
-InstructorDepartmentsController
+InstructorDepartmentsController.php
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -265,20 +265,230 @@ EXAMPLE RETURN DATA ~ for department 8001 ( which is computer science )
 //***********************************************************************************************************
 //***********************************************************************************************************
 
-//***********************************************************************************************************
-//***********************************************************************************************************
+InstructorsController.php
+
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+POST ~ https://icarus.cs.weber.edu/~nb06777/CS4450API/instructors
+
+** 885025795 is Brian Rague
+
+{
+	"departments":[
+		{"DepartmentCode":"8001","DepartmentName":"Computer Science"}, 
+		{"DepartmentCode":"8000","DepartmentName":"Electronics Engineering"}
+	],
+	"userID":885025795
+}
+
+Gets instructors that are related to the userID (in practice this will be the person who is logged in)
+
+TODO: 
+You will probably want to extend this to have even more security, only allowing someone to see other users who they are over.
+For example, if you are an "Adjunct" you should only see yourself,  if you are an "Adjunct Admin" for the CS department you should see CS adjuncts
+This functionality is started but not completed, it is commented out in this controller.
+
+EXAMPLE RETURN DATA
+[
+	{"userID":"885025795","departmentCode":"8001","FirstName":"Brian","LastName":"Rague"},
+	{"userID":"886227766","departmentCode":"8001","FirstName":"Matthew","LastName":"Horton"},
+	{"userID":"887969243","departmentCode":"8001","FirstName":"Bradley","LastName":"Peterson"}
+]
 
 //***********************************************************************************************************
 //***********************************************************************************************************
 
-//***********************************************************************************************************
-//***********************************************************************************************************
+OldAPIController.php
+
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+POST ~ https://icarus.cs.weber.edu/~nb06777/CS4450/v1/getSemesters
+
+{
+    "yearList": "2014,2013"
+}
+
+Calls the stored procedure sp_GetSemesters which takes a comma separated list of years.
+Gets all of the semesters in a nice format for the given years.
+
+EXAMPLE RETURN DATA
+[
+	{"semester":"Summer"},
+	{"semester":"Spring"},
+	{"semester":"Fall"}
+]
+
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+POST ~ https://icarus.cs.weber.edu/~nb06777/CS4450/v1/getDepartments
+
+{
+    "yearList": ["2016","2014","2013"],
+    "semesterList": ["Summer", "Spring"]
+}
+
+Calls the sp_GetDepartments stored procedure, returns all departments that (hard coded right now) the instructor
+taught for for the given time periods
+
+TODO: EXTREMELY IMPORTANT
+This code has the userID or instructorID hard coded, will need to make the data work like this:
+{
+    "yearList": ["2016","2014","2013"],
+    "semesterList": ["Summer", "Spring"],
+	"instructorID": 887969243
+}
+
+EXAMPLE RETURN DATA
+[
+	{"departments":"MATH"}
+]
+
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+POST ~ https://icarus.cs.weber.edu/~nb06777/CS4450/v1/getCourses
+
+{
+    "yearList": ["2014,2015"],
+    "semesterList": ["Summer"],
+    "departmentList": ["CS"]
+}
+
+Returns all courses that were taught for the given time periods for the given department (no duplicates)
+
+EXAMPLE RETURN DATA
+[
+	{"courseName":"CS1010"},
+	{"courseName":"CS1030"},
+	{"courseName":"CS1400"},
+	...
+	All CS courses that were taught "Summer 2014" and "Summer 2015"
+	...
+	{"courseName":"CS4800"},
+	{"courseName":"CS4830"},
+	{"courseName":"CS4890"}
+]
 
 //***********************************************************************************************************
 //***********************************************************************************************************
 
+PingraphDataController.php
+
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+POST ~ https://icarus.cs.weber.edu/~nb06777/CS4450/v1/pingraphData
+
+{
+    "courseList": [
+    	{"course":"CS1400"},
+    	{"course":"CS2420"},
+    	{"course":"CS1410"}
+    ],
+    "userID":887969243
+}
+
+Gets pingraph data for a given user about the given course list
+
+EXAMPLE RETURN DATA
+[
+	{
+		"TestId":"69210",
+		"teacher":"Bradley Peterson",
+		"course":"CS2420",
+		"catalogYear":"2014",
+		"calendarYear":"2014",
+		"semester":"Fall",
+		"semesterNumber":"3",
+		"Score":"3.184523",
+		"permission":"2",
+		"bannerCRN":"32940",
+		"LikertMin":"0",
+		"LikertMax":"4"
+	},
+	{
+		"TestId":"69210",
+		"teacher":"Bradley Peterson",
+		"course":"CS2420",
+		"catalogYear":"2014",
+		"calendarYear":"2015",
+		"semester":"Spring",
+		"semesterNumber":"1",
+		"Score":"3.198391",
+		"permission":"2",
+		"bannerCRN":"11232",
+		"LikertMin":"0",
+		"LikertMax":"4"
+	},
+		. . .
+		The rest of the pingraph data
+		. . .
+	{
+		"TestId":"69210",
+		"teacher":"Bradley Peterson",
+		"course":"CS2420",
+		"catalogYear":"2013",
+		"calendarYear":"2014",
+		"semester":"Summer",
+		"semesterNumber":"2",
+		"Score":"3.714285",
+		"permission":"2",
+		"bannerCRN":"20949",
+		"LikertMin":"0",
+		"LikertMax":"4"
+	},
+	{
+		"TestId":"69210",
+		"teacher":"Bradley Peterson",
+		"course":"CS2420",
+		"catalogYear":"2014",
+		"calendarYear":"2015",
+		"semester":"Summer",
+		"semesterNumber":"2",
+		"Score":"3.830449",
+		"permission":"2",
+		"bannerCRN":"21584",
+		"LikertMin":"0",
+		"LikertMax":"4"
+	}
+]
 //***********************************************************************************************************
 //***********************************************************************************************************
 
-//***********************************************************************************************************
-//***********************************************************************************************************
+YearSemestersController.php
+
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+GET ~ https://icarus.cs.weber.edu/~nb06777/CS4450/v1/yearSemesters
+
+Gets all semesters that have had courses taught in them
+
+EXAMPLE RETURN DATA
+[
+	{"Year":"2017","SemesterID":"3","SemesterName":"Fall"},
+	{"Year":"2017","SemesterID":"2","SemesterName":"Summer"},
+	{"Year":"2017","SemesterID":"1","SemesterName":"Spring"},
+	{"Year":"2016","SemesterID":"3","SemesterName":"Fall"},
+	{"Year":"2016","SemesterID":"2","SemesterName":"Summer"},
+	{"Year":"2016","SemesterID":"1","SemesterName":"Spring"},
+	{"Year":"2015","SemesterID":"3","SemesterName":"Fall"},
+	{"Year":"2015","SemesterID":"2","SemesterName":"Summer"},
+	{"Year":"2015","SemesterID":"1","SemesterName":"Spring"},
+	{"Year":"2014","SemesterID":"3","SemesterName":"Fall"},
+	{"Year":"2014","SemesterID":"2","SemesterName":"Summer"},
+	{"Year":"2014","SemesterID":"1","SemesterName":"Spring"},
+	{"Year":"2013","SemesterID":"3","SemesterName":"Fall"},
+	{"Year":"2013","SemesterID":"2","SemesterName":"Summer"},
+	{"Year":"2013","SemesterID":"1","SemesterName":"Spring"},
+	{"Year":"2012","SemesterID":"3","SemesterName":"Fall"},
+	{"Year":"2012","SemesterID":"2","SemesterName":"Summer"},
+	{"Year":"2012","SemesterID":"1","SemesterName":"Spring"},
+	{"Year":"2011","SemesterID":"3","SemesterName":"Fall"},
+	{"Year":"2011","SemesterID":"2","SemesterName":"Summer"},
+	{"Year":"2011","SemesterID":"1","SemesterName":"Spring"},
+	{"Year":"2010","SemesterID":"3","SemesterName":"Fall"},
+	{"Year":"2010","SemesterID":"2","SemesterName":"Summer"},
+	{"Year":"2010","SemesterID":"1","SemesterName":"Spring"},
+	{"Year":"2009","SemesterID":"3","SemesterName":"Fall"},
+	{"Year":"2009","SemesterID":"2","SemesterName":"Summer"},
+	{"Year":"2009","SemesterID":"1","SemesterName":"Spring"},
+	{"Year":"2008","SemesterID":"3","SemesterName":"Fall"}
+]

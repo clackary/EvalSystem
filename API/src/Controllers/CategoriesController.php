@@ -21,10 +21,10 @@ class CategoriesController
 		return $stmtGetAllCategories->fetchAll(PDO::FETCH_ASSOC);
 	}
 	
-	public static function getCategoryByID($passedInArray){
+	public static function getCategoryByID($args){
 		$db = DatabaseConnection::getInstance();
 		
-		$id = $passedInArray['id'];
+		$id = $args['id'];
 		
 		$queryGetCategoryByID = '
 			SELECT * 
