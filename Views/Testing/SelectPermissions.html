@@ -4,47 +4,70 @@
 	<title Secretary Permission Page>Select Permission</title>
 	<meta charset = "UTF-8"/>
 	<link rel = "stylesheet" type = "text/css" href = "SecretaryPermission.css">
+	<script type ="text/javascript">
+		var expanded = false;
+
+		function showCheckboxes() {
+		var checkboxes = document.getElementById("checkboxes");
+		if (!expanded) {
+			checkboxes.style.display = "block";
+			expanded = true;
+		  } else {
+			checkboxes.style.display = "none";
+			expanded = false;
+		  }
+		}
+	</script>	
 </head>	
 <body>
 	<br>
 	<br>
 	<h3>Select Permission(s)</h3>
-	<div id="Permission List">
-		<select multiple list="Permissions" name="Permission" size="21">
-		<datalist id="Permissions">
-			<option value="" disabled="disabled" selected="selected">Please Select Permission/s</option>
-			<option value="1 Administrator">1 Administrator</option>
-			<option value="2 Manager">2 Manager</option>
-			<option value="3 Instructor">3 Instructor</option>
-			<option value="4 Support Staff">4 Support Staff</option>
-			<option value="5 Site Admin">5 Site Admin</option>
-			<option value="6 Site Manager">6	Site Manager</option>
-			<option value="7 Site Staff">7 Site Staff</option>
-			<option value="8 Remote Proctor Admin">8 Remote Proctor Admin</option>
-			<option value="9 Remote Proctor">9 Remote Proctor</option>
-			<option value="11 WSU Staff">11	WSU Staff</option>
-			<option value="12 Adjunct">12 Adjunct</option>
-			<option value="13 Department Chair">13 Department Chair</option>
-			<option value="14 Dean">14 Dean</option>
-			<option value="15 Reports Instructor">15 Reports Instructor</option>
-			<option value="16 Tenure">16 Tenure</option>
-			<option value="17 Single Eval Admin">17	Single Eval Admin</option>
-			<option value="18 Demo Instructor">18 Demo Instructor</option>
-			<option value="19 Student">19 Student</option>
-			<option value="20 Standards Admin">20 Standards Admin</option>
-			<option value="21 Adjunct Advisor">21 Adjunct Advisor</option>
-		</datalist>
-		</select>
-	</div>
+	
+		<div class="PermissionList">
+			<div class="selectBox" onclick="showCheckboxes()">
+				<select>
+					<option>Select Permission(s)</option>
+				</select>
+				<div class="overSelect"></div>
+			</div>
+			<div id="checkboxes">
+				<label for ="Administrator"> <input type="checkbox" id="Administrator"/>1 Administrator</label>
+				<label for ="Manager"><input type="checkbox" id="Manager"/>2 Manager</label>
+				<label for ="Instructor"><input type="checkbox" id="Instructor"/>3 Instructor</label>
+				<label for ="Support Staff"><input type="checkbox" id="Support Staff"/>4 Support Staff</label>
+				<label for ="Site Admin"><input type="checkbox" id="Site Admin"/>5 Site Admin</label>
+				<label for ="Site Manager"><input type="checkbox" id="Site Manager"/>6 Site Manager</label>
+				<label for ="Site Staff"><input type="checkbox" id="Site Staff"/>7 Site Staff</label>
+				<label for ="Remote Proctor Admin"><input type="checkbox" id="Remote Proctor Admin"/>8 Remote Proctor Admin</label>
+				<label for ="Remote Proctor"><input type="checkbox" id="Remote Proctor"/>9 Remote Proctor</label>
+				<label for ="WSU Staff"><input type="checkbox" id="WSU Staff"/>11 WSU Staff</label>
+				<label for ="Adjunct"><input type="checkbox" id="Adjunct"/>12 Adjunct</label>
+				<label for ="Department Chair"><input type="checkbox" id="Department Chair"/>13 Department Chair</label>
+				<label for ="Dean"><input type="checkbox" id="Dean"/>14 Dean</label>
+				<label for ="Reports Instructor"><input type="checkbox" id="Reports Instructor"/>15 Reports Instructor</label>
+				<label for ="Tenure"><input type="checkbox" id="Tenure"/>16 Tenure</label>
+				<label for ="Single Eval Admin"><input type="checkbox" id="Single Eval Admin"/>17 Single Eval Admin</label>
+				<label for ="Demo Instructor"><input type="checkbox" id="Demo Instructor"/>18 Demo Instructor</label>
+				<label for ="Student"><input type="checkbox" id="Student"/>19 Student</label>
+				<label for ="Standards Admin"><input type="checkbox" id="Standards Admin"/>20 Standards Admin</label>
+				<label for ="Adjunct Advisor"><input type="checkbox" id="Adjunct Advisor"/>21 Adjunct Advisor</label>
+				
+			</div>
+		</div>
+	
 	<br>
 	
 	<div id="NextBackButton">
+		<button onclick="location.href='SelectInstructor.html'" type="button">
+		 Back</button>
+	
 		<button onclick="location.href='PermissionResults.html'" type="button">
 		 Next</button>
-		 
-		<button onclick="location.href='SecretaryPermission.html'" type="button">
-		 Back</button>
+		 		
 	</div>
 	
 </body>
 </html>
+
+
