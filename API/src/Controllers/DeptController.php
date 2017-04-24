@@ -15,7 +15,7 @@ class DeptController
     //leaving out the other "test" department names
 		$queryGetAllDepts = '
 			SELECT
-				distinct d.code            as DepartmentCode,
+				distinct d.code   as DepartmentCode,
 				d.name            as DepartmentName
 			FROM InstructorDepartments id
 			JOIN Departments d

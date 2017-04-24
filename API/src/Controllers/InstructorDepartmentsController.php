@@ -20,7 +20,7 @@ class InstructorDepartmentsController
 		
 		
 		$queryGetAllInstructorDepartments = '
-			SELECT 
+			SELECT DISTINCT
 				id.DepartmentCode as DepartmentCode, 
 				id.id             as InstructorDepartmentsID, 
 				id.instructorID   as InstructorID, 
