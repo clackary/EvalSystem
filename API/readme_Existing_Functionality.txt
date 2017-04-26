@@ -1,5 +1,5 @@
-Most of these end points and function are in use, but not all of them.  Some were made as a test when we were 
-learning how to make ajax calls in angular, some of them are from when we decided to go a different route.  
+Most of these end points and functions are in use, but not all of them.  Some were made as a test when we were 
+learning how to make Ajax calls in Angular. Some of them are from when we decided to go a different route.  
 There was no reason to delete them as we might really need the practice or older end points in the future.  
 They are completely valid and work with our database still.
 
@@ -8,7 +8,7 @@ If you are looking for some functionality, please search this to find out if wha
 I will use our current team's existing API location as the example text, but you will end up rebuilding it 
 somewhere else as you don't have access to the account on icarus to modify it.
 
-*All functions that call a "SELECT" query return data in json format*
+*All functions that call a "SELECT" query return data in json format*.
 
 This will be the format for the rest of this API documentation
 
@@ -43,14 +43,14 @@ POST ~ https://icarus.cs.weber.edu/~nb06777/CS4450/v1/boxAndWhiskerData
 	"userID":887969243
 }
 
-This is a good starting point for building up the Box and Whisker report.  For the moment it is a copy the 
+This is a good starting point for building up the Box and Whisker report.  For the moment, it is a copy of the 
 PingraphDataController's getPingraphData() function.  It returns all of the information you will 
-need to populate your Box and Whisker plot.  If you need different information you will need to modify this.
-It currently calls "EXEC sp_GetPingraphData" in the database.  This stored procedure is rather big and complicated;
+need to populate your Box and Whisker plot.  If you need different information, you will need to modify this.
+It currently calls "EXEC sp_GetPingraphData" in the database.  This stored procedure is rather big, complicated and
 rewriting it to perfectly suit the Box and Whisker plot seems like a huge waste of time if it returns all that we need.
 
 Though POST is generally used to create data on the server/database, this was the fastest way to send 
-information about what we want (the script that makes the ajax call that accesses this function already built the body and 
+information about what we want (the script that makes the Ajax call that accesses this function already built the body and 
 was already set up to use POST by the previoius group).  GET does not allow a body to be sent.
 
 IF you care enough to convert this to true RESTful API style, you would need to convert this to a GET call and 
