@@ -131,7 +131,7 @@ Lets combine these two tables and fix the names
 
 ![Combine the previous tables into one and fix the names](/API/README_Images/editingAPI02.png)
 
-Now lets make a new end point in the API.  First we need to make a controller to handle this endpoint.  Lets call it **QuestionsController**.  The easiest way to create a new end point controller is to just copy one of the others and modify it.  Keep the parts that are definitely needed still, like the creation of the database object (the $db object) and the $data object is to capture information sent in an HTTP request's body.  These 2 lines:
+Now lets make a new end point in the API.  First we need to make a controller to handle this endpoint.  Lets call it **QuestionsController**.  The easiest way to create a new end point controller is to just copy one of the others and modify it.  Keep the parts that are definitely still needed, like the creation of the database object (the $db object). And the $data object is to capture information sent in an HTTP request's body.  These 2 lines:
 
 $db = DatabaseConnection::getInstance();
 $data = (object) json_decode(file_get_contents('php://input'));
@@ -176,7 +176,7 @@ Generally we use the GET http request for getting data, POST for creating data, 
 
 We are doing nothing but requesting data, so let's create a route for this data.  In an earlier example we were able to use https://icarus.cs.weber.edu/~nb06777/CS4450API/instructors to get a list of instructors using a GET http request.  Lets do the same thing but use https://icarus.cs.weber.edu/~nb06777/CS4450API/questions with a GET http request to get our new data.
 
-Add a new route in api.php (It will add to the FastRoute object that already exists.  Remember, FastRoute was package we installed using Composer, it will do a TON of the heavy lifting for us)
+Add a new route in api.php (It will add to the FastRoute object that already exists.  Remember, FastRoute was a package we installed using Composer, it will do a TON of the heavy lifting for us)
 
 ![Adding a route](/API/README_Images/editingAPI09.png)
 
@@ -184,11 +184,11 @@ Now, the last parameter is a callback function.  We need to make this function a
 
 ![Creating a callback function](/API/README_Images/editingAPI10.png)
 
-And now we return the data we fetched in the QuestionsController
+And now we return the data we fetched in the QuestionsController.
 
 ![returning the data we fetched earlier](/API/README_Images/editingAPI11.png)
 
-Now if we test it out in Postman you should get an array containing every row converted to a json object.
+Now, if we test it out in Postman, you should get an array containing every row converted to a json object.
 
 ![using Postman to do an HTTP request to get our data](/API/README_Images/editingAPI12.png)
 
@@ -198,7 +198,7 @@ Let's add another route but to get only a specific testID.  Add another route wi
 
 ![Add a route to get questions by testID](/API/README_Images/editingAPI13.png)
 
-And let's add another function to our QuestionsController to handle this
+And let's add another function to our QuestionsController to handle this.
 
 ![Adding the ability to get questions by testID in the controller](/API/README_Images/editingAPI14.png)
 
@@ -210,7 +210,7 @@ Now we can just do as we did before, execute it and return the data.
 
 ![returning the data again](/API/README_Images/editingAPI16.png)
 
-Let's try it out in Postman
+Let's try it out in Postman.
 
 ![Trying it out again](/API/README_Images/editingAPI17.png)
 ---
