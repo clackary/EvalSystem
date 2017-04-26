@@ -77,11 +77,7 @@ List of added stored procedures
 ### Generating a report
 
 ### Secretary Page
-Make it a "Checkbox system"
-
-Add permissions functionality
-
-Add departments
+See Hand off video for additional details.
 
 ### Deployment
 Reach out to Brad and Chitester for this one. Good luck.
